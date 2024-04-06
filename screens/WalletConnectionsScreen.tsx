@@ -15,8 +15,8 @@ const NewBundleScreen: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>New Bundle Screen</Text>
-            <Button title="Save bundle" onPress={() => navigation.navigate('Dashboard')} />
+            <Text style={styles.text}>Wallet Connections</Text>
+            <Button title="Back" onPress={() => navigation.goBack()} />
         </View>
     );
 };

@@ -12,8 +12,10 @@ type NavigatorParams = {
 }
 
 const WalletButton: React.FC = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
+
     return (
-      <TouchableOpacity style={styles.circle}>
+      <TouchableOpacity style={styles.circle} onPress={() => navigation.navigate('WalletConnections')}>
           <MaterialIcons name='wallet' size={30} color='white' />
        </TouchableOpacity>
     );

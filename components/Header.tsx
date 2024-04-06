@@ -1,21 +1,23 @@
 import React from 'react';
 
 // React Native imports
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 
 // Component imports
 import WalletConnection from './WalletButton';
 
 const Header: React.FC = () => {
     return (
-        <View style={styles.header}>
-            <View>
-                <Text style={styles.text}>bundle</Text>
+        <SafeAreaView style={styles.background}>
+            <View style={styles.header}>
+                <View>
+                    <Text style={styles.text}>bundle</Text>
+                </View>
+                <View>
+                    <WalletConnection />
+                </View>
             </View>
-            <View>
-                <WalletConnection />
-            </View>
-        </View>
+        </SafeAreaView>
         
      );
 };
@@ -32,6 +34,9 @@ const styles = StyleSheet.create({
         //borderBottomColor: '#ddd',
         paddingLeft: 20,
         paddingRight: 20,
+    },
+    background: {
+        backgroundColor: '#192d32',
     },
     text: {
         fontSize: 40,
