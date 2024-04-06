@@ -10,7 +10,7 @@ type NavigatorParams = {
     Dashboard: undefined;
 }
 
-const NewBundleScreen: React.FC = () => {
+const WalletConnectionsScreen: React.FC = () => {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
@@ -28,17 +28,17 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'lightgray',
+        backgroundColor: '#192d32',
     },
     text: {
-        color: 'black',
+        color: '#80baa8',
         fontSize: 24,
     },
     safeArea: {
         flex: 1,
-        backgroundColor: 'lightgray',
+        backgroundColor: '#192d32',
     },
 });
 
-export default NewBundleScreen;
+export default WalletConnectionsScreen;
 

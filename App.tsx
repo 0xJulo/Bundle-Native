@@ -9,6 +9,7 @@ import ConnectionScreen from './screens/ConnectionScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import NewBundleScreen from './screens/NewBundleScreen';
 import WalletConnectionsScreen from './screens/WalletConnectionsScreen';
+import BundleScreen from './screens/BundleScreen';
 
 // Component imports
 import Header from './components/Header';
@@ -25,6 +26,7 @@ export default function App() {
           <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false}} />
           <Stack.Screen name="NewBundle" component={NewBundleScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
           <Stack.Screen name="WalletConnections" component={WalletConnectionsScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          <Stack.Screen name="Bundle" component={BundleScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
         </Stack.Navigator>
       </NavigationContainer>
   );
