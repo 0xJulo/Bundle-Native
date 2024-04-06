@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView} from 'react-native';
 
 // React Native imports
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,22 +18,14 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-      <>
-        <NavigationContainer>
-          <Header />
-          <Stack.Navigator>
-            <Stack.Screen name="Connection" component={ConnectionScreen} options={{ headerShown: false}} />
-            <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false}} />
-            <Stack.Screen name="NewBundle" component={NewBundleScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-            <Stack.Screen name="WalletConnections" component={WalletConnectionsScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </>
+    <NavigationContainer>
+      <Header />
+        <Stack.Navigator>
+          <Stack.Screen name="Connection" component={ConnectionScreen} options={{ headerShown: false}} />
+          <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false}} />
+          <Stack.Screen name="NewBundle" component={NewBundleScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+          <Stack.Screen name="WalletConnections" component={WalletConnectionsScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
+        </Stack.Navigator>
+      </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+};

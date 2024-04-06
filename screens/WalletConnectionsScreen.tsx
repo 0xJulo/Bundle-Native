@@ -1,7 +1,7 @@
 import React from 'react';
 
 // React Native imports§
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
@@ -14,10 +14,12 @@ const NewBundleScreen: React.FC = () => {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Wallet Connections</Text>
-            <Button title="Back" onPress={() => navigation.goBack()} />
-        </View>
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.container}>
+                <Text style={styles.text}>Wallet Connections</Text>
+                <Button title="Back" onPress={() => navigation.goBack()} />
+            </View>
+        </SafeAreaView>
     );
 };
 
@@ -31,6 +33,10 @@ const styles = StyleSheet.create({
     text: {
         color: 'black',
         fontSize: 24,
+    },
+    safeArea: {
+        flex: 1,
+        backgroundColor: 'lightgray',
     },
 });
 

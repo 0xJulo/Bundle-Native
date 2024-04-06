@@ -24,12 +24,12 @@ const CreateBundle: React.FC = () => {
 const styles = StyleSheet.create({
     fixedButton: {
         position: 'absolute',
-        bottom: 30,
+        bottom: 0,
         right: 20,
         width: 80, 
         height: 80,
         borderRadius: 50, 
-        backgroundColor: '#007AFF',
+        backgroundColor: '#80baa8',
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 8, 

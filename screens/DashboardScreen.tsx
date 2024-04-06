@@ -1,7 +1,7 @@
 import React from 'react';
 
 // React Native imports§
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 
 // Component imports
 import CreateBundle from '../components/CreateNewBundleButton';
@@ -13,10 +13,12 @@ type NavigatorParams = {
 
 const DashboardScreen: React.FC = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Dashboard Screen</Text>
-            <CreateBundle />
-        </View>
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.container}>
+                <Text style={styles.text}>Dashboard Screen</Text>
+                <CreateBundle />
+            </View>
+        </SafeAreaView>
     );
 };
 
@@ -30,6 +32,10 @@ const styles = StyleSheet.create({
     text: {
         color: 'black',
         fontSize: 24,
+    },
+    safeArea: {
+        flex: 1,
+        backgroundColor: 'lightgray',
     },
 });
 
