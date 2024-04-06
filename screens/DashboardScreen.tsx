@@ -1,9 +1,7 @@
 import React from 'react';
 
 // React Native imports§
-import { View, Text, StyleSheet, Button } from 'react-native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet } from 'react-native';
 
 // Component imports
 import CreateBundle from '../components/CreateNewBundleButton';
@@ -14,8 +12,6 @@ type NavigatorParams = {
 }
 
 const DashboardScreen: React.FC = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
-
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Dashboard Screen</Text>
