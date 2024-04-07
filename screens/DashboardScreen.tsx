@@ -13,26 +13,45 @@ type NavigatorParams = {
 }
 
 // Example data
-const exampleBundle = {
-    id: 1,
-    name: 'Swap ETH to USDC',
-    description: 'Take Eth from my wallet and swap it to USDC using Uniswap',
-    owner: 'Julo.eth',
-};
-const exampleBundle2 = {
-    id: 1,
-    name: 'Fundraise to Gnosis Pay',
-    description: 'Fundraise from Woop pay and bridge to Gnosis for real-world payment',
-    owner: 'Julo.eth',
-};
+const exampleBundle = [
+    {
+        id: 1,
+        name: 'Swap ETH to USDC',
+        description: 'Take Eth from my wallet and swap it to USDC using Uniswap',
+        owner: 'Julo.eth',
+        bundleType: 'My Bundle',
+    },
+    {
+        id: 2,
+        name: 'Bridge to Gnosis Pay',
+        description: 'Bridge assets to Gnosis for real-world payment',
+        owner: 'Julo.eth',
+        bundleType: 'Pre-defined',
+    },
+    {
+        id: 3,
+        name: 'Create Woop Fundeaiser',
+        description: 'Fundraise from Woop pay',
+        owner: 'Julo.eth',
+        bundleType: 'Pre-defined',
+    },
+    {
+        id: 4,
+        name: 'Arbtitrum Airdrop',
+        description: 'Meet conditions for Arbitrum airdrop',
+        owner: 'Julo.eth',
+        bundleType: 'Popular',
+    },
+];
 
 const DashboardScreen: React.FC = () => {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
                 {/* <Text style={styles.text}>Dashboard Screen</Text> */}
-                <Bundle id={exampleBundle.id} name={exampleBundle.name} description={exampleBundle.description} owner={exampleBundle.owner} />
-                <Bundle id={exampleBundle2.id} name={exampleBundle2.name} description={exampleBundle2.description} owner={exampleBundle2.owner} />
+                {exampleBundle.map((bundle) => (
+                    <Bundle key={bundle.id} id={bundle.id} name={bundle.name} description={bundle.description} owner={bundle.owner} bundleType={bundle.bundleType} />
+                ))}
                 <CreateBundle />
             </View>
         </SafeAreaView>

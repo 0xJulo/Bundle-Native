@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 // Component imports
 import RunBundleButton from '../components/RunBundleButton';
+import ForkBundleButton from '../components/ForkBundleButton';
 
 // Typescript props for navigation
 type NavigatorParams = {
@@ -22,6 +23,7 @@ const BundleScreen: React.FC = () => {
                 <Text style={styles.text}>Bundle Screen</Text>
                 <Button title="Back" onPress={() => navigation.goBack()} />
                 <RunBundleButton />
+                <ForkBundleButton />
             </View>
         </SafeAreaView>
     );

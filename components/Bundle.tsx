@@ -19,12 +19,13 @@ interface BundleProps {
     name: string,
     description: string,
     owner: string,
+    bundleType: string,
     //trigger: object,
     //actions: object,
     //notify: string,
 }
 
-const Bundle: React.FC<BundleProps> = ({ id, name, description, owner }) => {
+const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleType }) => {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
   return (
@@ -34,6 +35,7 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, owner }) => {
             borderColor: pressed ? '#9ddbc7' : '#80baa8',
           },
     ]} onPress={() => navigation.navigate('Bundle')}>
+        <Text style={styles.bundleType}>{bundleType}</Text>
         <Text style={styles.heading}>{name}</Text>
         <Text style={styles.owner}>Owner: {owner}</Text>
         <Text style={styles.description}>{description}</Text>
@@ -64,9 +66,14 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 16,
-        marginBottom: 10,
+        marginBottom: 5,
         color: '#192d32',
-    }
+    },
+    bundleType: {
+        fontSize: 12,
+        marginBottom: 5,
+        color: '#192d32',
+    },
 });
 
 // <TextInputDropdown onChangeText={() => {}} onSelectOption={() => {}} options={['Ethereum', 'Bitcoin']} />
