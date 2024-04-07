@@ -31,7 +31,7 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleTyp
   return (
     <Pressable style={({ pressed }) => [styles.bundle, 
         {
-            backgroundColor: pressed ? '#579380' : '#80baa8',
+            backgroundColor: pressed ? '#80baa8' : '#20393f',
             borderColor: pressed ? '#9ddbc7' : '#80baa8',
           },
     ]} onPress={() => navigation.navigate('Bundle')}>
@@ -45,7 +45,7 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleTyp
 
 const styles = StyleSheet.create({
     bundle: {
-        backgroundColor: '#80baa8',
+        backgroundColor: '#20393f',
         width: '90%',
         borderRadius: 10,
         borderWidth: 1,
@@ -54,9 +54,8 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 20,
-        fontWeight: 'bold',
         marginBottom: 2,
-        color: '#192d32',
+        color: '#80baa8',
     },
     owner: {
         fontSize: 12,

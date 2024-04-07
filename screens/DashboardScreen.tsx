@@ -1,11 +1,13 @@
 import React from 'react';
 
 // React Native imports§
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 
 // Component imports
 import CreateBundle from '../components/CreateNewBundleButton';
 import Bundle from '../components/Bundle';
+import Tabs from '../components/Tabs';
+import SearchBundles from '../components/SearchBundles';
 
 // Typescript props for navigation
 type NavigatorParams = {
@@ -47,13 +49,16 @@ const exampleBundle = [
 const DashboardScreen: React.FC = () => {
     return (
         <SafeAreaView style={styles.safeArea}>
-            <View style={styles.container}>
-                {/* <Text style={styles.text}>Dashboard Screen</Text> */}
+            <ScrollView contentContainerStyle={styles.container}>
+                <SearchBundles />
+                <Tabs />
                 {exampleBundle.map((bundle) => (
                     <Bundle key={bundle.id} id={bundle.id} name={bundle.name} description={bundle.description} owner={bundle.owner} bundleType={bundle.bundleType} />
                 ))}
+            </ScrollView>
+            <SafeAreaView>
                 <CreateBundle />
-            </View>
+            </SafeAreaView>
         </SafeAreaView>
     );
 };
