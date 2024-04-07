@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 
 // React Native imports
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,16 +18,43 @@ import Header from './components/Header';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [isConnected, setIsConnected] = useState(true);
+
+  const setConnected = () => {
+    setIsConnected(!isConnected);
+  }
   return (
     <NavigationContainer>
-      <Header />
-        <Stack.Navigator>
-          <Stack.Screen name="Connection" component={ConnectionScreen} options={{ headerShown: false}} />
-          <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false}} />
-          <Stack.Screen name="NewBundle" component={NewBundleScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-          <Stack.Screen name="WalletConnections" component={WalletConnectionsScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-          <Stack.Screen name="Bundle" component={BundleScreen} options={{ headerShown: false, animation: 'slide_from_right' }} />
-        </Stack.Navigator>
+      {isConnected ? (
+        <ConnectionScreen setConnected={setConnected} />
+      ) : (
+        <>
+          <Header />
+            <Stack.Navigator>
+              <Stack.Screen 
+                name="Dashboard" 
+                component={DashboardScreen} 
+                options={{ headerShown: false}} 
+              />
+              <Stack.Screen 
+                name="NewBundle" 
+                component={NewBundleScreen} 
+                options={{ headerShown: false, animation: 'slide_from_right' }} 
+              />
+              <Stack.Screen 
+                name="WalletConnections" 
+                component={WalletConnectionsScreen} 
+                options={{ headerShown: false, animation: 'slide_from_right' }} 
+              />
+              <Stack.Screen 
+                name="Bundle" 
+                component={BundleScreen} 
+                options={{ headerShown: false, 
+                animation: 'slide_from_right' }} 
+              />
+            </Stack.Navigator>
+          </>
+      )}
       </NavigationContainer>
   );
 };

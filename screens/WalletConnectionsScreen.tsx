@@ -6,12 +6,12 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
 // Typescript props for navigation
-type NavigatorParams = {
+type WalletConnectionsScreenProps = {
     Dashboard: undefined;
 }
 
 const WalletConnectionsScreen: React.FC = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
+    const navigation = useNavigation<NativeStackNavigationProp<WalletConnectionsScreenProps>>();
 
     return (
         <SafeAreaView style={styles.safeArea}>
