@@ -31,27 +31,37 @@ const Tabs: React.FC = () => {
                     </View>
                 );
         }
-    }
+    };
 
     return (
         <>
             <View style={styles.container}>
-                <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('all')}>
-                    <Text>All</Text>
+                <TouchableOpacity
+                    style={styles.tab}
+                    onPress={() => setActiveTab('all')}
+                >
+                    <Text>All Bundles</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('saved')}>
+                <TouchableOpacity
+                    style={styles.tab}
+                    onPress={() => setActiveTab('saved')}
+                >
                     <Text>Saved</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('myBundles')}>
+                <TouchableOpacity
+                    style={styles.tab}
+                    onPress={() => setActiveTab('myBundles')}
+                >
                     <Text>My Bundles</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.tab} onPress={() => setActiveTab('popular')}>
+                <TouchableOpacity
+                    style={styles.tab}
+                    onPress={() => setActiveTab('popular')}
+                >
                     <Text>Popular</Text>
                 </TouchableOpacity>
             </View>
-
         </>
-       
     );
 };
 
@@ -72,7 +82,7 @@ const styles = StyleSheet.create({
         padding: 20,
         // Add more styles for your content container if needed
     },
-})
+});
 
 export default Tabs;
 
