@@ -11,12 +11,12 @@ type NavigatorParams = {
     NewBundle: undefined;
 }
 
-const CreateBundle: React.FC = () => {
+const RunBundle: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
   return (
     <TouchableOpacity style={styles.fixedButton} onPress={() => navigation.navigate('NewBundle')}>
-        <MaterialIcons name='add' size={50} color='#192d32' />
+        <MaterialIcons name='terminal' size={50} color='#192d32' />
      </TouchableOpacity>
   );
 };
@@ -24,7 +24,7 @@ const CreateBundle: React.FC = () => {
 const styles = StyleSheet.create({
     fixedButton: {
         position: 'absolute',
-        bottom: 20,
+        bottom: 0,
         right: 20,
         width: 80, 
         height: 80,
@@ -40,4 +40,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CreateBundle;
+export default RunBundle;
+

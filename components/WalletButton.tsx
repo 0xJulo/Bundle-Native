@@ -16,7 +16,7 @@ const WalletButton: React.FC = () => {
 
     return (
       <TouchableOpacity style={styles.circle} onPress={() => navigation.navigate('WalletConnections')}>
-          <MaterialIcons name='wallet' size={30} color='white' />
+          <MaterialIcons name='wallet' size={30} color='#192d32' />
        </TouchableOpacity>
     );
   };

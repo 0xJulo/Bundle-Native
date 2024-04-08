@@ -5,19 +5,25 @@ import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
+// Component imports
+import RunBundleButton from '../components/RunBundleButton';
+import ForkBundleButton from '../components/ForkBundleButton';
+
 // Typescript props for navigation
-type WalletConnectionsScreenProps = {
+type NavigatorParams = {
     Dashboard: undefined;
 }
 
-const WalletConnectionsScreen: React.FC = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<WalletConnectionsScreenProps>>();
+const BundleScreen: React.FC = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-                <Text style={styles.text}>Wallet Connections</Text>
+                <Text style={styles.text}>Bundle Screen</Text>
                 <Button title="Back" onPress={() => navigation.goBack()} />
+                <RunBundleButton />
+                <ForkBundleButton />
             </View>
         </SafeAreaView>
     );
@@ -40,5 +46,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default WalletConnectionsScreen;
+export default BundleScreen;
 

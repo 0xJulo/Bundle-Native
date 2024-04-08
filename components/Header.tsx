@@ -1,18 +1,27 @@
 import React from 'react';
 
 // React Native imports
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+
+// Typescript props for navigation
+type NavigatorParams = {
+    Dashboard: undefined;
+}
 
 // Component imports
 import WalletConnection from './WalletButton';
 
 const Header: React.FC = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
+
     return (
         <SafeAreaView style={styles.background}>
             <View style={styles.header}>
-                <View>
+                <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
                     <Text style={styles.text}>bundle</Text>
-                </View>
+                </TouchableOpacity>
                 <View>
                     <WalletConnection />
                 </View>
