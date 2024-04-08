@@ -24,7 +24,7 @@ const CreateBundle: React.FC = () => {
 const styles = StyleSheet.create({
     fixedButton: {
         position: 'absolute',
-        bottom: 0,
+        bottom: 20,
         right: 20,
         width: 80, 
         height: 80,

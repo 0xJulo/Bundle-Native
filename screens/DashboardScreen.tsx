@@ -44,11 +44,25 @@ const exampleBundle = [
         owner: 'Julo.eth',
         bundleType: 'Popular',
     },
+    {
+        id: 5,
+        name: 'Create NFT and deploy to chain',
+        description: 'Create an NFT and deploy it to the chain of your choice, or multiple chain',
+        owner: 'Julo.eth',
+        bundleType: 'Popular',
+    },
+    {
+        id: 6,
+        name: 'Create something else',
+        description: 'Create an NFT and deploy it to the chain of your choice, or multiple chain',
+        owner: 'Julo.eth',
+        bundleType: 'Popular',
+    },
 ];
 
 const DashboardScreen: React.FC = () => {
     return (
-        <SafeAreaView style={styles.safeArea}>
+        <>
             <ScrollView contentContainerStyle={styles.container}>
                 <SearchBundles />
                 <Tabs />
@@ -56,19 +70,17 @@ const DashboardScreen: React.FC = () => {
                     <Bundle key={bundle.id} id={bundle.id} name={bundle.name} description={bundle.description} owner={bundle.owner} bundleType={bundle.bundleType} />
                 ))}
             </ScrollView>
-            <SafeAreaView>
-                <CreateBundle />
-            </SafeAreaView>
-        </SafeAreaView>
+            <CreateBundle />
+        </>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#192d32',
+        paddingBottom: 60,
     },
     text: {
         color: 'black',

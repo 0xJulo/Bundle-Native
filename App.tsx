@@ -10,6 +10,7 @@ import DashboardScreen from './screens/DashboardScreen';
 import NewBundleScreen from './screens/NewBundleScreen';
 import WalletConnectionsScreen from './screens/WalletConnectionsScreen';
 import BundleScreen from './screens/BundleScreen';
+import WoopBundleScreen from './screens/WoopBundleScreen';
 
 // Component imports
 import Header from './components/Header';
@@ -30,7 +31,7 @@ export default function App() {
       ) : (
         <>
           <Header />
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{ contentStyle: { backgroundColor: '#80baa8' } }}>
               <Stack.Screen 
                 name="Dashboard" 
                 component={DashboardScreen} 
@@ -49,6 +50,12 @@ export default function App() {
               <Stack.Screen 
                 name="Bundle" 
                 component={BundleScreen} 
+                options={{ headerShown: false, 
+                animation: 'slide_from_right' }} 
+              />
+              <Stack.Screen 
+                name="WoopBundle" 
+                component={WoopBundleScreen} 
                 options={{ headerShown: false, 
                 animation: 'slide_from_right' }} 
               />

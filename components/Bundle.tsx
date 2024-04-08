@@ -11,6 +11,7 @@ import TextInputDropdown from './TextInputDropdown';
 // Typescript props for navigation
 type NavigatorParams = {
     Bundle: undefined;
+    WoopBundle: undefined;
 }
 
 // Interface props
@@ -34,7 +35,7 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleTyp
             backgroundColor: pressed ? '#80baa8' : '#20393f',
             borderColor: pressed ? '#9ddbc7' : '#80baa8',
           },
-    ]} onPress={() => navigation.navigate('Bundle')}>
+    ]} onPress={() => navigation.navigate('WoopBundle')}>
         <Text style={styles.bundleType}>{bundleType}</Text>
         <Text style={styles.heading}>{name}</Text>
         <Text style={styles.owner}>Owner: {owner}</Text>
@@ -61,17 +62,17 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: 'bold',
         marginBottom: 10,
-        color: '#192d32',
+        color: '#80baa8',
     },
     description: {
         fontSize: 16,
-        marginBottom: 5,
-        color: '#192d32',
+        marginBottom: 10,
+        color: '#80baa8',
     },
     bundleType: {
         fontSize: 12,
         marginBottom: 5,
-        color: '#192d32',
+        color: '#80baa8',
     },
 });
 
