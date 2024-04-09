@@ -1,5 +1,6 @@
 import React, { createContext, useContext, ReactNode, useState } from 'react';
 
+// Example data for bundles
 export const ExampleDataStore = [
     {
         id: 1,
@@ -7,13 +8,14 @@ export const ExampleDataStore = [
         type: 'My Bundle',
         created: 'Bundle',
         owner: 'Julo.eth',
+        description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         steps: [
             {
                 step: 1,
                 subheading: 'Step 01',
-                title: 'Create Woop Payment Link',
-                description: 'This is a description for step 1',
+                title: 'Network & Amount',
+                description: 'Input the token that you want to swap and the amount',
                 components: [
                     {
                         type: 'button',
@@ -28,6 +30,7 @@ export const ExampleDataStore = [
         type: 'Pre-defined',
         created: 'Bundle',
         owner: 'Julo.eth',
+        description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         steps: [
             {
@@ -50,6 +53,7 @@ export const ExampleDataStore = [
         type: 'Pre-defined',
         created: 'Bundle',
         owner: 'Julo.eth',
+        description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         steps: [
             {
@@ -72,6 +76,7 @@ export const ExampleDataStore = [
         type: 'Pre-defined',
         created: 'Bundle',
         owner: 'Julo.eth',
+        description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         steps: [
             {
@@ -94,6 +99,7 @@ export const ExampleDataStore = [
         type: 'Pre-defined',
         created: 'Bundle',
         owner: 'Julo.eth',
+        description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         steps: [
             {
@@ -116,6 +122,7 @@ export const ExampleDataStore = [
         type: 'Pre-defined',
         created: 'Bundle',
         owner: 'Julo.eth',
+        description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         steps: [
             {
@@ -141,13 +148,14 @@ export interface Item {
     type: string;
     created: string;
     owner: string;
-    tags: string[];
+    description: string;
+    tags?: string[];
     steps: {
         step: number;
         subheading: string;
         title: string;
         description: string;
-        components: {
+        components?: {
             type: string;
             text: string;
         }[];

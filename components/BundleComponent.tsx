@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // Component imports
-import TextInputDropdown from './TextInputDropdown';
+import CustomButton from './CustomButton';
 
 // Typescript props for navigation
 type NavigatorParams = {
@@ -17,18 +17,27 @@ type NavigatorParams = {
 
 // Interface props
 interface BundleProps {
-    id: number,
-    name: string,
-    description: string,
-    owner: string,
-    bundleType: string,
-    //trigger: object,
-    //actions: object,
-    //notify: string,
+    id: number;
+    name: string;
+    type: string;
+    created: string;
+    owner: string;
+    description: string;
+    tags?: string[];
+    steps: {
+        step: number;
+        subheading: string;
+        title: string;
+        description: string;
+        components?: {
+            type: string;
+            text: string;
+        }[];
+    }[];
 }
 
 // Component Code
-const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleType }) => {
+const Bundle: React.FC<BundleProps> = ({ id, name, description, created, type, steps }) => {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +49,7 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleTyp
     <View style={styles.bundle}>
         <View style={styles.bundleTop}>
             <View>
-                <Text style={styles.bundleType}>{bundleType}</Text>
+                <Text style={styles.bundleType}>{type}</Text>
                 <Text style={styles.heading}>{name}</Text>
             </View>
             <View>
@@ -50,10 +59,29 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, owner, bundleTyp
              </TouchableOpacity>
             </View>
         </View>
-        {isOpen && <View>
-            <Text style={styles.description}>{description}</Text>
-            <Text style={styles.owner}>Created by: {owner}</Text>
-        </View>}
+        <Text style={styles.description}>{description}</Text>
+
+        {/* Steps section of component */}
+        {isOpen && 
+            <>
+            <Text style={styles.owner}>Created by: {created}</Text>
+            <View style={styles.step}>
+                
+                {steps.map((step) => (
+                    <View key={step.step} >
+                        <Text style={styles.owner}>{step.subheading}</Text>
+                        <Text style={styles.heading}>{step.title}</Text>
+                        <Text style={styles.description}>{step.description}</Text>
+                    </View>
+                ))}
+
+                
+                
+            </View>
+        </>
+        }
+        {/* Run Bundle button */}
+        <CustomButton text='Run Bundle' icon='terminal' />
     </View>
   );
 };
@@ -94,14 +122,11 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         color: '#80baa8',
     },
-    circle: {
-        width: 50,
-        height: 50,
-        borderRadius: 50,
-        backgroundColor: '#80baa8',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+    step: {
+        borderTopColor: 'rgba(128, 186, 168, 0.2)',
+        borderTopWidth: 1,
+        paddingTop: 10,
+    }
 });
 
 
