@@ -1,5 +1,8 @@
 import React, { useState} from 'react';
 
+// Example data
+import { ExampleDataProvider } from './ExampleDataStore';
+
 // React Native imports
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -25,43 +28,45 @@ export default function App() {
     setIsConnected(!isConnected);
   }
   return (
-    <NavigationContainer>
-      {isConnected ? (
-        <ConnectionScreen setConnected={setConnected} />
-      ) : (
-        <>
-          <Header />
-            <Stack.Navigator screenOptions={{ contentStyle: { backgroundColor: '#80baa8' } }}>
-              <Stack.Screen 
-                name="Dashboard" 
-                component={DashboardScreen} 
-                options={{ headerShown: false}} 
-              />
-              <Stack.Screen 
-                name="NewBundle" 
-                component={NewBundleScreen} 
-                options={{ headerShown: false, animation: 'slide_from_right' }} 
-              />
-              <Stack.Screen 
-                name="WalletConnections" 
-                component={WalletConnectionsScreen} 
-                options={{ headerShown: false, animation: 'slide_from_right' }} 
-              />
-              <Stack.Screen 
-                name="Bundle" 
-                component={BundleScreen} 
-                options={{ headerShown: false, 
-                animation: 'slide_from_right' }} 
-              />
-              <Stack.Screen 
-                name="WoopBundle" 
-                component={WoopBundleScreen} 
-                options={{ headerShown: false, 
-                animation: 'slide_from_right' }} 
-              />
-            </Stack.Navigator>
-          </>
-      )}
-      </NavigationContainer>
+    <ExampleDataProvider>
+      <NavigationContainer>
+        {isConnected ? (
+          <ConnectionScreen setConnected={setConnected} />
+        ) : (
+          <>
+            <Header />
+              <Stack.Navigator screenOptions={{ contentStyle: { backgroundColor: '#80baa8' } }}>
+                <Stack.Screen 
+                  name="Dashboard" 
+                  component={DashboardScreen} 
+                  options={{ headerShown: false}} 
+                />
+                <Stack.Screen 
+                  name="NewBundle" 
+                  component={NewBundleScreen} 
+                  options={{ headerShown: false, animation: 'slide_from_right' }} 
+                />
+                <Stack.Screen 
+                  name="WalletConnections" 
+                  component={WalletConnectionsScreen} 
+                  options={{ headerShown: false, animation: 'slide_from_right' }} 
+                />
+                <Stack.Screen 
+                  name="Bundle" 
+                  component={BundleScreen} 
+                  options={{ headerShown: false, 
+                  animation: 'slide_from_right' }} 
+                />
+                <Stack.Screen 
+                  name="WoopBundle" 
+                  component={WoopBundleScreen} 
+                  options={{ headerShown: false, 
+                  animation: 'slide_from_right' }} 
+                />
+              </Stack.Navigator>
+            </>
+        )}
+        </NavigationContainer>
+      </ExampleDataProvider>
   );
 };
