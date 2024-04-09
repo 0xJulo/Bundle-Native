@@ -3,6 +3,8 @@ import React from 'react';
 // React Native imports
 import { Pressable, Text, StyleSheet } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 
 // Interface props
 interface CustomButtonProps {
@@ -10,9 +12,15 @@ interface CustomButtonProps {
     icon?: string,
 }
 
+type NavigatorParams = {
+    Bundle: undefined;
+}
+
 const CustomButton: React.FC<CustomButtonProps> = ({ text, icon }) => {
+    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
+
     return (
-        <Pressable style={icon ? styles.buttonIcon : styles.button}>
+        <Pressable style={icon ? styles.buttonIcon : styles.button} onPress={() => navigation.navigate('Bundle')}>
             <Text style={styles.buttonText}>{text}</Text>
             {icon && <MaterialIcons name={icon} size={30} color='#192d32' />}
         </Pressable>
