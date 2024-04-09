@@ -5,7 +5,7 @@ export const ExampleDataStore = [
     {
         id: 1,
         name: 'Swap ETH to USDC',
-        type: 'My Bundle',
+        type: 'My Bundles',
         created: 'Bundle',
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
@@ -27,7 +27,7 @@ export const ExampleDataStore = [
     },{
         id: 2,
         name: 'Bridge to Gnosis Pay',
-        type: 'Pre-defined',
+        type: 'Saved',
         created: 'Bundle',
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
@@ -50,7 +50,7 @@ export const ExampleDataStore = [
     {
         id: 3,
         name: 'Create Woop Fundraiser',
-        type: 'Pre-defined',
+        type: 'Saved',
         created: 'Bundle',
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
@@ -73,7 +73,7 @@ export const ExampleDataStore = [
     {
         id: 4,
         name: 'Arbitrum Airdrop',
-        type: 'Pre-defined',
+        type: 'Popular',
         created: 'Bundle',
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
@@ -119,7 +119,7 @@ export const ExampleDataStore = [
     {
         id: 6,
         name: 'Create something else',
-        type: 'Pre-defined',
+        type: 'Popular',
         created: 'Bundle',
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',

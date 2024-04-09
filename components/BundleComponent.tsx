@@ -16,7 +16,7 @@ type NavigatorParams = {
 }
 
 // Interface props
-interface BundleProps {
+export interface BundleProps {
     id: number;
     name: string;
     type: string;
@@ -81,7 +81,12 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, created, type, s
         </>
         }
         {/* Run Bundle button */}
-        <CustomButton text='Run Bundle' icon='terminal' />
+        <View style={styles.buttons}>
+            <CustomButton text='Run Bundle' icon='terminal' />
+            <TouchableOpacity style={{marginLeft: 10, marginTop: 10}}>
+                <MaterialIcons name={type === 'Saved' ? 'star' : 'star-outline'} size={30} color='#80baa8'  />
+            </TouchableOpacity>
+        </View>
     </View>
   );
 };
@@ -90,7 +95,6 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, created, type, s
 const styles = StyleSheet.create({
     bundle: {
         backgroundColor: '#20393f',
-        width: '90%',
         borderColor: 'rgba(128, 186, 168, 0.2)',
         borderRadius: 10,
         borderWidth: 1,
@@ -126,7 +130,12 @@ const styles = StyleSheet.create({
         borderTopColor: 'rgba(128, 186, 168, 0.2)',
         borderTopWidth: 1,
         paddingTop: 10,
-    }
+    },
+    buttons: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
 
 
