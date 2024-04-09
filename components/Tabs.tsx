@@ -1,48 +1,21 @@
 import React, { useState } from 'react';
+
+// React Native imports
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+
+// Component imports
 import Bundle, { BundleProps } from './BundleComponent';
 
-import { useExampleData } from '../ExampleDataStore';
 
 interface TabsProps {
     items: BundleProps[];
 };
 
-const Tabs: React.FC = () => {
-    const { items } = useExampleData();
+const Tabs: React.FC<TabsProps> = ({ items }) => {
     const [activeTab, setActiveTab] = useState('all');
     const activeBundles = items.filter(item => 
         activeTab.toLowerCase() === 'all' || item.type.toLowerCase() === activeTab.toLowerCase()
     );
-
-    const activeTabContent = () => {
-        switch (activeTab) {
-            case 'All':
-                return (
-                    <View>
-                        <Text>Favourites Widget 01</Text>
-                        <Text>Favourites Widget 02</Text>
-                        <Text>Favourites Widget 03</Text>
-                    </View>
-                );
-            case 'watching':
-                return (
-                    <View>
-                        <Text>Watching Widget 01</Text>
-                        <Text>Watching Widget 02</Text>
-                        <Text>Watching Widget 03</Text>
-                    </View>
-                );
-            case 'popular':
-                return (
-                    <View>
-                        <Text>Popular Widget 01</Text>
-                        <Text>Popular Widget 02</Text>
-                        <Text>Popular Widget 03</Text>
-                    </View>
-                );
-        }
-    };
 
     return (
         <>
@@ -52,19 +25,19 @@ const Tabs: React.FC = () => {
                     style={[styles.tab, activeTab === 'all' && styles.activeTab]}
                     onPress={() => setActiveTab('all')}
                 >
-                    <Text style={[styles.text, activeTab === 'all' && styles.activeText]}>All Bundles</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={[styles.tab, activeTab === 'Saved' && styles.activeTab]}
-                    onPress={() => setActiveTab('Saved')}
-                >
-                    <Text style={[styles.text, activeTab === 'Saved' && styles.activeText]}>Saved</Text>
+                    <Text style={[styles.text, activeTab === 'all' && styles.activeText]}>All</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.tab, activeTab === 'My Bundles' && styles.activeTab]}
                     onPress={() => setActiveTab('My Bundles')}
                 >
                     <Text style={[styles.text, activeTab === 'My Bundles' && styles.activeText]}>My Bundles</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.tab, activeTab === 'Saved' && styles.activeTab]}
+                    onPress={() => setActiveTab('Saved')}
+                >
+                    <Text style={[styles.text, activeTab === 'Saved' && styles.activeText]}>Saved</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.tab, activeTab === 'Popular' && styles.activeTab]}
@@ -94,21 +67,26 @@ const Tabs: React.FC = () => {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         flexDirection: 'column',
         marginBottom: 15,
+        backgroundColor: '#192d32',
     },
     tabContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
+        alignItems: 'center',
         padding: 10,
         width: '100%',
         marginBottom: 15,
     },
     tab: {
         paddingVertical: 15,
-        paddingHorizontal: 20,
-        backgroundColor: '#192d32',
+        paddingHorizontal: 25,
+        backgroundColor: '#20393f',
         borderColor: '#80baa8',
+        borderWidth: 1,
+        margin: 0,
         //borderBottomWidth: 1,
     },
     activeTab: {
@@ -116,7 +94,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#80baa8',
-        textDecorationLine: 'underline',
+        // textDecorationLine: 'underline',
     },
     activeText: {
         color: '#192d32',

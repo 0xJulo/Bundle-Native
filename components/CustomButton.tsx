@@ -22,7 +22,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, icon }) => {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#80baa8',
-        width: '100%',
+        flex: 1,
         height: 50,
         marginTop: 10,
         borderRadius: 10,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     buttonIcon: {
         backgroundColor: '#80baa8',
-        width: '100%',
+        flex: 1,
         height: 50,
         marginTop: 10,
         borderRadius: 10,

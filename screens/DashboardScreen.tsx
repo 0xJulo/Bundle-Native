@@ -8,7 +8,6 @@ import { StyleSheet, ScrollView } from 'react-native';
 
 // Component imports
 import CreateBundle from '../components/CreateNewBundleButton';
-import Bundle from '../components/BundleComponent';
 import Tabs from '../components/Tabs';
 import SearchBundles from '../components/SearchBundles';
 
@@ -23,19 +22,7 @@ const DashboardScreen: React.FC = () => {
         <>
             <ScrollView contentContainerStyle={styles.container}>
                 <SearchBundles />
-                <Tabs />
-                {items.map((bundle) => (
-                    <Bundle 
-                        key={bundle.id} 
-                        id={bundle.id} 
-                        name={bundle.name} 
-                        description={bundle.description} 
-                        created={bundle.created} 
-                        type={bundle.type} 
-                        steps={bundle.steps} 
-                        owner={bundle.owner} 
-                        tags={bundle.tags} />
-                ))}
+                <Tabs items={items} />
             </ScrollView>
             <CreateBundle />
         </>
@@ -60,4 +47,19 @@ const styles = StyleSheet.create({
 });
 
 export default DashboardScreen;
+
+{/* 
+                {items.map((bundle) => (
+                    <Bundle 
+                        key={bundle.id} 
+                        id={bundle.id} 
+                        name={bundle.name} 
+                        description={bundle.description} 
+                        created={bundle.created} 
+                        type={bundle.type} 
+                        steps={bundle.steps} 
+                        owner={bundle.owner} 
+                        tags={bundle.tags} />
+                ))}
+                */}
 
