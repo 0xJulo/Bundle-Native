@@ -141,6 +141,13 @@ export const ExampleDataStore = [
     },
 ];
 
+export interface ConnectionStatusType {
+    isConnected: boolean;
+    isLoading: boolean;
+    setConnectionStatus: (isConnected: boolean) => void;
+    setLoadingStatus: (isLoading: boolean) => void;
+};
+
 // Define the shape of a Bundle
 export interface Item {
     id: number;
@@ -165,6 +172,7 @@ export interface Item {
 // Define the data and functions
 export interface ExampleDataContextType {
     items: Item[];
+    connectionStatus: ConnectionStatusType;
     //addItem: (newItem: Item) => void;
     //removeItem: (itemId: string) => void;
 };
@@ -177,6 +185,23 @@ interface ExampleDataProviderProps {
 
 export const ExampleDataProvider = ({ children }: ExampleDataProviderProps) => {
     const [items, setItems] = useState<Item[]>(ExampleDataStore); // put path to actual items
+    const [isConnected, setIsConnected] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const setConnectionStatus = (newState: boolean) => {
+        setIsConnected(newState);
+    }
+
+    const setLoadingStatus = (newState: boolean) => {
+        setIsLoading(newState);
+    }
+
+    const connectionStatus: ConnectionStatusType = {
+        isConnected,
+        setConnectionStatus,
+        isLoading,
+        setLoadingStatus
+    }
     
     {/* 
     const addItem = (newItem: Item) => {
@@ -189,7 +214,7 @@ export const ExampleDataProvider = ({ children }: ExampleDataProviderProps) => {
       */}
       
       return (
-        <ExampleDataContext.Provider value={{ items }}>
+        <ExampleDataContext.Provider value={{ items, connectionStatus }}>
             {children}
         </ExampleDataContext.Provider>
       );

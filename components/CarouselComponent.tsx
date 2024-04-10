@@ -16,8 +16,8 @@ const data = [
     { id: 5, title: 'Item 5' },
 ];
 
-// Component Code
-const Carousel: React.FC = () => {
+// Actual component
+export default function Carousel() {
     const flatListRef = useRef<FlatList>(null);
 
     const handleSnapToItem = (index: number) => {
@@ -26,7 +26,7 @@ const Carousel: React.FC = () => {
 
     const renderItem = ({ item }: { item: (typeof data)[0] }) => (
         <View style={{ width, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>{item.title}</Text>
+            <Text style={styles.text}>{item.title}</Text>
         </View>
     );
 
@@ -51,12 +51,14 @@ const Carousel: React.FC = () => {
     );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    text: {
+        color: '#80baa8',
+    }
 });
-
-export default Carousel;

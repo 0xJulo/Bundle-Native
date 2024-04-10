@@ -11,7 +11,8 @@ type NavigatorParams = {
     WalletConnections: undefined;
 }
 
-const WalletButton: React.FC = () => {
+//Actual component
+export default function WalletButton() {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
@@ -21,6 +22,7 @@ const WalletButton: React.FC = () => {
     );
   };
 
+// Component styles
 const styles = StyleSheet.create({
     circle: {
         width: 50,
@@ -32,5 +34,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default WalletButton;
 

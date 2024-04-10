@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 // React Native imports
 import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { Picker } from '@react-native-picker/picker';
 
 // Component import
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
 
-const WoopBundleScreen: React.FC = () => {
+
+// Actual component
+export default function WoopBundleScreen() {
     const [selectedValue, setSelectedValue] = useState('-- select chain --');
     const [isOpen, setIsOpen] = useState(false);
 
@@ -113,6 +114,7 @@ const WoopBundleScreen: React.FC = () => {
     );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -177,16 +179,3 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 });
-
-export default WoopBundleScreen;
-
-/*
-<Picker
-                    selectedValue={selectedValue}
-                    style={styles.picker}
-                    onValueChange={(itemValue: string, itemIndex: number) => setSelectedValue(itemValue)}
-                >
-                    <Picker.Item label="Arbitrum" value="arbitrum" />
-                    <Picker.Item label="Gnosis Chain" value="gnosis" />
-                </Picker>
-*/

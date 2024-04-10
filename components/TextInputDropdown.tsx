@@ -10,11 +10,8 @@ interface TextInputDropdownProps {
     options: string[];
 }
 
-const TextInputDropdown: React.FC<TextInputDropdownProps> = ({
-    onChangeText,
-    onSelectOption,
-    options,
-  }) => {
+// Actual component
+export default function TextInputDropdown({ onChangeText, onSelectOption, options, }: TextInputDropdownProps) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
     const toggleDropdown = () => {
@@ -49,8 +46,9 @@ const TextInputDropdown: React.FC<TextInputDropdownProps> = ({
         )}
       </View>
     );
-  };
+  }
 
+  // Component styles
 const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -87,6 +85,4 @@ const styles = StyleSheet.create({
       paddingVertical: 5,
     },
 });
-
-export default TextInputDropdown;
 

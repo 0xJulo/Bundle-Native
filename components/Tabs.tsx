@@ -11,7 +11,8 @@ interface TabsProps {
     items: BundleProps[];
 };
 
-const Tabs: React.FC<TabsProps> = ({ items }) => {
+// Actual component
+export default function Tabs({ items }: TabsProps) {
     const [activeTab, setActiveTab] = useState('all');
     const activeBundles = items.filter(item => 
         activeTab.toLowerCase() === 'all' || item.type.toLowerCase() === activeTab.toLowerCase()
@@ -65,6 +66,7 @@ const Tabs: React.FC<TabsProps> = ({ items }) => {
     );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -105,8 +107,6 @@ const styles = StyleSheet.create({
         // Add more styles for your content container if needed
     },
 });
-
-export default Tabs;
 
 /*
             <View style={styles.content}>

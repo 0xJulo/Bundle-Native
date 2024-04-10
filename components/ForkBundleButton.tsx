@@ -11,7 +11,8 @@ type NavigatorParams = {
     NewBundle: undefined;
 }
 
-const ForkBundleButton: React.FC = () => {
+// Actual component
+export default function ForkBundleButton() {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
   return (
@@ -21,6 +22,7 @@ const ForkBundleButton: React.FC = () => {
   );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     fixedButton: {
         position: 'absolute',
@@ -39,6 +41,4 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
     },
 });
-
-export default ForkBundleButton;
 
