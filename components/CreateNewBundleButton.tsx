@@ -11,7 +11,8 @@ type NavigatorParams = {
     NewBundle: undefined;
 }
 
-const CreateBundle: React.FC = () => {
+// Actual component
+export default function CreateBundle() {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
   return (
@@ -21,6 +22,7 @@ const CreateBundle: React.FC = () => {
   );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     fixedButton: {
         position: 'absolute',
@@ -39,5 +41,3 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
     },
 });
-
-export default CreateBundle;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-// Data
-import { useExampleData } from '../ExampleDataStore';
-
 // React Native imports
 import { StyleSheet, ScrollView } from 'react-native';
+
+// Global Data
+import { useExampleData } from '../ExampleDataStore';
 
 // Component imports
 import CreateBundle from '../components/CreateNewBundleButton';
@@ -16,7 +16,8 @@ type NavigatorParams = {
     NewBundle: undefined;
 }
 
-const DashboardScreen: React.FC = () => {
+// Actual component
+export default function DashboardScreen() {
     const { items } = useExampleData();
     return (
         <>
@@ -29,6 +30,7 @@ const DashboardScreen: React.FC = () => {
     );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'flex-start',
@@ -45,21 +47,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#192d32',
     },
 });
-
-export default DashboardScreen;
-
-{/* 
-                {items.map((bundle) => (
-                    <Bundle 
-                        key={bundle.id} 
-                        id={bundle.id} 
-                        name={bundle.name} 
-                        description={bundle.description} 
-                        created={bundle.created} 
-                        type={bundle.type} 
-                        steps={bundle.steps} 
-                        owner={bundle.owner} 
-                        tags={bundle.tags} />
-                ))}
-                */}
 

@@ -36,8 +36,8 @@ export interface BundleProps {
     }[];
 }
 
-// Component Code
-const Bundle: React.FC<BundleProps> = ({ id, name, description, created, type, steps }) => {
+// Actual component
+export default function BundleComponent({ id, name, description, created, type, steps }: BundleProps) {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -82,7 +82,7 @@ const Bundle: React.FC<BundleProps> = ({ id, name, description, created, type, s
         }
         {/* Run Bundle button */}
         <View style={styles.buttons}>
-            <CustomButton text='Run Bundle' icon='terminal' />
+            <CustomButton text='Run Bundle' icon='terminal' onPress={() => navigation.navigate('Bundle')}  />
             <TouchableOpacity style={{marginLeft: 10, marginTop: 10}}>
                 <MaterialIcons name={type === 'Saved' ? 'star' : 'star-outline'} size={30} color='#80baa8'  />
             </TouchableOpacity>
@@ -137,10 +137,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-
-
-
-export default Bundle;
 
 
 // <TextInputDropdown onChangeText={() => {}} onSelectOption={() => {}} options={['Ethereum', 'Bitcoin']} />

@@ -13,7 +13,8 @@ type NavigatorParams = {
 // Component imports
 import WalletConnection from './WalletButton';
 
-const Header: React.FC = () => {
+// Actual component
+export default function Header() {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
@@ -31,6 +32,7 @@ const Header: React.FC = () => {
      );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     header: {
         width: '100%',
@@ -51,6 +53,4 @@ const styles = StyleSheet.create({
         color: '#80baa8',
     },
 })
-
-export default Header;
 

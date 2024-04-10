@@ -10,17 +10,18 @@ import { useNavigation } from '@react-navigation/native';
 interface CustomButtonProps {
     text: string,
     icon?: string,
+    onPress?: () => void,
 }
 
 type NavigatorParams = {
     Bundle: undefined;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ text, icon }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ text, icon, onPress }) => {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
-        <Pressable style={icon ? styles.buttonIcon : styles.button} onPress={() => navigation.navigate('Bundle')}>
+        <Pressable style={icon ? styles.buttonIcon : styles.button} onPress={onPress}>
             <Text style={styles.buttonText}>{text}</Text>
             {icon && <MaterialIcons name={icon} size={30} color='#192d32' />}
         </Pressable>
@@ -56,3 +57,4 @@ const styles = StyleSheet.create({
 
 export default CustomButton;
 
+{/* <Pressable style={icon ? styles.buttonIcon : styles.button} onPress={() => navigation.navigate('Bundle')}> */}

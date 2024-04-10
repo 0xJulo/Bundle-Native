@@ -10,7 +10,8 @@ type NavigatorParams = {
     Dashboard: undefined;
 }
 
-const NewBundleScreen: React.FC = () => {
+// Actual component
+export default function NewBundleScreen() {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
@@ -23,6 +24,7 @@ const NewBundleScreen: React.FC = () => {
     );
 };
 
+// Component styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -39,6 +41,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#192d32',
     },
 });
-
-export default NewBundleScreen;
 

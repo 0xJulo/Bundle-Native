@@ -1,7 +1,8 @@
 import React, { useState} from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
-const SearchBundles: React.FC = () => {
+// Actual component
+export default function SearchBundles() {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearchChange = (query: string) => {
@@ -21,6 +22,7 @@ const SearchBundles: React.FC = () => {
     );
 }
 
+// Component styles
 const styles = StyleSheet.create({
     container: {
         width: '100%',
@@ -37,5 +39,3 @@ const styles = StyleSheet.create({
         color: '#80baa8'
     }
 })
-
-export default SearchBundles;
