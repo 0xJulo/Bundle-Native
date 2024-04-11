@@ -7,6 +7,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 // Component import
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
+import DropdownComponent from '../components/DropdownComponent';
 
 
 // Actual component
@@ -84,32 +85,12 @@ export default function WoopBundleScreen() {
                 <Text style={styles.bundleType}>Step 02 - Condition</Text>
                 <Text style={styles.heading}>When incoming amount has reach desired limit</Text>
             </View>
-
-            {/* Step Three Bundle */}
-            <View style={styles.bundle}>
-                <View style={styles.bundleTop}>
-                    <Text style={styles.bundleType}>Step 03 - Action</Text>
-                    <MaterialIcons
-                            name='check-circle'
-                            size={30}
-                            color='#80baa8'
-                    />
-                </View>
-                
-                <Text style={styles.heading}>Swap to Ethereum using Uniswap</Text>
-            </View>
-
-            {/* Step Four Bundle */}
-            <View style={styles.bundle}>
-                <Text style={styles.bundleType}>Step 04 - Action</Text>
-                <Text style={styles.heading}>Bridge to Gnosis Chain</Text>
-            </View>
-
-            {/* Step Four Bundle */}
-            <View style={styles.bundle}>
-                <Text style={styles.bundleType}>Step 05 - Action</Text>
-                <Text style={styles.heading}>Send to Gnosis Safe address</Text>
-            </View>
+                <DropdownComponent />
+                <TextInputDropdown
+                    onChangeText={(text) => console.log(text)}
+                    onSelectOption={(option) => console.log(option)}
+                    options={['Ethereum', 'Arbitrum', 'Gnosis Chain']}
+                />
         </View>
     );
 };
