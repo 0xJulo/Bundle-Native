@@ -11,8 +11,15 @@ import CustomButton from './CustomButton';
 
 // Typescript props for navigation
 type NavigatorParams = {
-    Bundle: undefined;
-    WoopBundle: undefined;
+    Bundle: {
+        id: number;
+        name: string;
+        description: string;
+        created: string;
+        owner: string;
+        type: string;
+        steps: BundleProps['steps'];
+    };
 }
 
 // Interface props
@@ -82,7 +89,19 @@ export default function BundleComponent({ id, name, description, created, type, 
         }
         {/* Run Bundle button */}
         <View style={styles.buttons}>
-            <CustomButton text='Run Bundle' icon='terminal' onPress={() => navigation.navigate('Bundle')}  />
+            <CustomButton 
+                text='Run Bundle' 
+                icon='terminal' 
+                onPress={() => navigation.navigate('Bundle', {
+                    id,
+                    name,
+                    description,
+                    created,
+                    owner: created,
+                    type,
+                    steps,
+                })}
+            />
             <TouchableOpacity style={{marginLeft: 10, marginTop: 10}}>
                 <MaterialIcons name={type === 'Saved' ? 'star' : 'star-outline'} size={30} color='#80baa8'  />
             </TouchableOpacity>
