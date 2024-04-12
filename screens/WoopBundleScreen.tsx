@@ -7,6 +7,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 // Hooks
 import useWallet from '../utils/hooks/useWallet';
 import useTrigger from '../utils/hooks/useTrigger';
+import useCondition from '../utils/hooks/useCondition';
+import useAction from '../utils/hooks/useAction';
 
 // Component import
 import TextInputDropdown from '../components/TextInputDropdown';
@@ -16,6 +18,7 @@ import Widget from '../components/WidgetConstructor';
 import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
 import DataComparison from '../patterns/DataComparisonPattern';
 import CreateNFT from '../patterns/CreateNFTPattern';
+import AmountInput from '../components/AmountInputComponent';
 
 
 // Actual component
@@ -36,25 +39,48 @@ export default function WoopBundleScreen() {
 
     const { transactions } = useWallet('0xfe123');
     const { trigger } = useTrigger(1);
+    const { condition } = useCondition(1);
+    const { action } = useAction(1);
 
     return (
         <ScrollView>
         <View style={styles.container}>
 
             {/* useTrigger */}
-                {trigger && (
-                    <View style={{marginBottom: 20,}}>
-                        <Text style={styles.heading}>useTrigger function from store</Text>
-                        <Text style={{ color: '#80baa8' }}>{trigger.type}</Text>
-                        {trigger.input === 'wallet' && (
+            {trigger && (
+                <View style={{marginBottom: 40,}}>
+                    <Text style={styles.heading}>useTrigger function from store</Text>
+                    <Text style={{ color: '#80baa8' }}>{trigger.type}</Text>
+                    {trigger.input === 'wallet' && (
+                        <>
                             <Text style={{ color: '#80baa8' }}>{trigger.input}</Text>
-                        )}
-                    </View>
-                )}
+                            <AmountInput />
+                        </>
+                    )}
+                </View>
+            )}
+            
+            {/* useCondition */}
+            {condition && (
+                <View style={{marginBottom: 40,}}>
+                    <Text style={styles.heading}>useCondition function from store</Text>
+                    <Text style={{ color: '#80baa8' }}>{condition.type}</Text>
+                    <Text style={{ color: '#80baa8' }}>{condition.source}</Text>
+                </View>
+            )}
+
+            {/* useAction */}
+            {action && (
+                <View style={{marginBottom: 40,}}>
+                    <Text style={styles.heading}>useAction function from store</Text>
+                    <Text style={{ color: '#80baa8' }}>{action.type}</Text>
+                    <Text style={{ color: '#80baa8' }}>{action.source}</Text>
+                </View>
+            )}
 
             {/* useWallet */}
-            <View>
-                <Text style={styles.heading}>Transactions</Text>
+            <View style={{marginBottom: 40,}}>
+                <Text style={styles.heading}>Transactions from useWallet</Text>
                 {transactions.map((transaction, index) => (
                     <Text 
                         key={index}

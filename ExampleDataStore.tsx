@@ -14,6 +14,14 @@ export const ExampleDataStore = [
             type: 'internal',
             input: 'wallet'
         },
+        condition: {
+            type: 'data',
+            source: 'chainlink'
+        },
+        action: {
+            type: 'transaction',
+            source: 'external'
+        },
         steps: [
             {
                 step: 1,
@@ -39,6 +47,14 @@ export const ExampleDataStore = [
         trigger: {
             type: 'internal',
             input: 'wallet'
+        },
+        condition: {
+            type: 'data',
+            source: 'chainlink'
+        },
+        action: {
+            type: 'transaction',
+            source: 'external'
         },
         steps: [
             {
@@ -67,6 +83,14 @@ export const ExampleDataStore = [
             type: 'internal',
             input: 'wallet'
         },
+        condition: {
+            type: 'data',
+            source: 'chainlink'
+        },
+        action: {
+            type: 'transaction',
+            source: 'external'
+        },
         steps: [
             {
                 step: 1,
@@ -93,6 +117,14 @@ export const ExampleDataStore = [
         trigger: {
             type: 'internal',
             input: 'wallet'
+        },
+        condition: {
+            type: 'data',
+            source: 'chainlink'
+        },
+        action: {
+            type: 'transaction',
+            source: 'external'
         },
         steps: [
             {
@@ -121,6 +153,14 @@ export const ExampleDataStore = [
             type: 'internal',
             input: 'wallet'
         },
+        condition: {
+            type: 'data',
+            source: 'chainlink'
+        },
+        action: {
+            type: 'transaction',
+            source: 'external'
+        },
         steps: [
             {
                 step: 1,
@@ -147,6 +187,14 @@ export const ExampleDataStore = [
         trigger: {
             type: 'internal',
             input: 'wallet'
+        },
+        condition: {
+            type: 'data',
+            source: 'chainlink'
+        },
+        action: {
+            type: 'transaction',
+            source: 'external'
         },
         steps: [
             {
@@ -184,7 +232,15 @@ export interface Item {
     trigger: {
         type: string;
         input: string;
-    }
+    };
+    condition: {
+        type: string;
+        source: string;
+    },
+    action: {
+        type: string;
+        source: string;
+    },
     steps: {
         step: number;
         subheading: string;
@@ -201,7 +257,7 @@ export interface Item {
 export interface ExampleDataContextType {
     items: Item[];
     connectionStatus: ConnectionStatusType;
-    //addItem: (newItem: Item) => void;
+    addItem: (newItem: Item) => void;
     //removeItem: (itemId: string) => void;
 };
 
@@ -231,18 +287,19 @@ export const ExampleDataProvider = ({ children }: ExampleDataProviderProps) => {
         setLoadingStatus
     }
     
-    {/* 
+    
     const addItem = (newItem: Item) => {
-        setItems([...items, newItem]);
+        setItems(prevItems => [...prevItems, newItem]);
       };
     
+      {/* 
       const removeItem = (itemId: string) => {
         setItems(items.filter((item) => item.id !== itemId));
       };
       */}
       
       return (
-        <ExampleDataContext.Provider value={{ items, connectionStatus }}>
+        <ExampleDataContext.Provider value={{ items, connectionStatus, addItem }}>
             {children}
         </ExampleDataContext.Provider>
       );
