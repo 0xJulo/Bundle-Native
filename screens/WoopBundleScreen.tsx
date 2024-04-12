@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // React Native imports
-import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button, ScrollView } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // Component import
@@ -11,6 +11,7 @@ import DropdownComponent from '../components/DropdownComponent';
 import Widget from '../components/WidgetConstructor';
 import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
 import DataComparison from '../patterns/DataComparisonPattern';
+import CreateNFT from '../patterns/CreateNFTPattern';
 
 
 // Actual component
@@ -30,6 +31,7 @@ export default function WoopBundleScreen() {
     };
 
     return (
+        <ScrollView>
         <View style={styles.container}>
             {/* Step Two Bundle */}
             <Widget>
@@ -40,7 +42,10 @@ export default function WoopBundleScreen() {
                 <Text style={styles.heading}>Data Comparison pattern</Text>
                 <DataComparison />
             </Widget>
+                <Text style={styles.heading}>Create NFT pattern</Text>
+                <CreateNFT />
         </View>
+        </ScrollView>
     );
 };
 
