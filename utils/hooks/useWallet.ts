@@ -17,6 +17,7 @@ interface NFTs {
 };
 
 // The hook
+// THIS WILL PROBABLY BE REPLACED BY WEB3 LIBRARY
 
 export default function useWallet(walletAddres: string) {
     const [transactions, setTransactions] = useState<Transactions[]>([]);

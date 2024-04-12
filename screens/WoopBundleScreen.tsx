@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+// Hooks
+import useWallet from '../utils/hooks/useWallet';
+import useTrigger from '../utils/hooks/useTrigger';
+
 // Component import
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
@@ -26,8 +30,35 @@ export default function WoopBundleScreen() {
         setIsOpen(false);
     };
 
+    const { transactions } = useWallet('0xfe123');
+    const { trigger } = useTrigger(1);
+
     return (
         <View style={styles.container}>
+
+            {/* useTrigger */}
+                {trigger && (
+                    <View style={{marginBottom: 20,}}>
+                        <Text style={styles.heading}>useTrigger function from store</Text>
+                        <Text style={{ color: '#80baa8' }}>{trigger.type}</Text>
+                        {trigger.input === 'wallet' && (
+                            <Text style={{ color: '#80baa8' }}>{trigger.input}</Text>
+                        )}
+                    </View>
+                )}
+
+            {/* useWallet */}
+            <View>
+                <Text style={styles.heading}>Transactions</Text>
+                {transactions.map((transaction, index) => (
+                    <Text 
+                        key={index}
+                        style={{color: '#80baa8'}}
+                    >{`ID: ${transaction.id}, Amount: ${transaction.amount}, Currency: ${transaction.currency}`}</Text>
+                ))}
+            </View>
+
+
             {/* Step One Bundle */}
             <View style={styles.bundle}>
                 <View style={styles.bundleTop}>

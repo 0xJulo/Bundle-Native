@@ -10,6 +10,10 @@ export const ExampleDataStore = [
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
+        trigger: {
+            type: 'internal',
+            input: 'wallet'
+        },
         steps: [
             {
                 step: 1,
@@ -32,6 +36,10 @@ export const ExampleDataStore = [
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
+        trigger: {
+            type: 'internal',
+            input: 'wallet'
+        },
         steps: [
             {
                 step: 1,
@@ -55,6 +63,10 @@ export const ExampleDataStore = [
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
+        trigger: {
+            type: 'internal',
+            input: 'wallet'
+        },
         steps: [
             {
                 step: 1,
@@ -78,6 +90,10 @@ export const ExampleDataStore = [
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
+        trigger: {
+            type: 'internal',
+            input: 'wallet'
+        },
         steps: [
             {
                 step: 1,
@@ -101,6 +117,10 @@ export const ExampleDataStore = [
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
+        trigger: {
+            type: 'internal',
+            input: 'wallet'
+        },
         steps: [
             {
                 step: 1,
@@ -124,6 +144,10 @@ export const ExampleDataStore = [
         owner: 'Julo.eth',
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
+        trigger: {
+            type: 'internal',
+            input: 'wallet'
+        },
         steps: [
             {
                 step: 1,
@@ -157,6 +181,10 @@ export interface Item {
     owner: string;
     description: string;
     tags?: string[];
+    trigger: {
+        type: string;
+        input: string;
+    }
     steps: {
         step: number;
         subheading: string;
