@@ -21,7 +21,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, icon, onPress }) => {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
-        <Pressable style={icon ? styles.buttonIcon : styles.button} onPress={onPress}>
+        <Pressable style={({ pressed })=> [icon ? styles.buttonIcon : styles.button, pressed && styles.buttonPressed]} onPress={onPress}>
             <Text style={styles.buttonText}>{text}</Text>
             {icon && <MaterialIcons name={icon} size={30} color='#192d32' />}
         </Pressable>
@@ -31,7 +31,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, icon, onPress }) => {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#80baa8',
-        flex: 1,
+        // flex: 1,
         height: 50,
         marginTop: 10,
         borderRadius: 10,
@@ -53,6 +53,11 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#192d32',
     },
+    buttonPressed: {
+        opacity: 0.8,
+        borderWidth: 1,
+        borderColor: '#80baa8',
+    }
 });
 
 export default CustomButton;
