@@ -4,18 +4,33 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-// Actual compoenent
-export default function DropdownComponent() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedValue, setSelectedValue] = useState('-- select chain --');
+// Component structure
+type DropdownProps = {
+    options: string[];
+    onOptionSelected?: (option: string) => void;
+}
 
-    const options = ['Ethereum', 'Arbitrum', 'Gnosis Chain'];
+// Actual compoenent
+export default function DropdownComponent({ options, onOptionSelected }: DropdownProps) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = useState('-- Choose option --');
+
+    //const options = ['Ethereum', 'Arbitrum', 'Gnosis Chain'];
 
     const toggleDropdown = () => setIsOpen(!isOpen);
+
+    const handleSelect = (option: string) => {
+        if (onOptionSelected) {
+            onOptionSelected(option);
+        }
+    };
+
     const selectedOpen = (option: string) => {
         setSelectedValue(option);
         setIsOpen(false);
-    }
+        handleSelect(option);
+    };
+
     return (
         <>
             <TouchableOpacity
@@ -68,7 +83,6 @@ const styles = StyleSheet.create({
     },
     dropdownOptions: {
         backgroundColor: '#20393f',
-        width: '100%',
         borderWidth: 1,
         borderTopWidth: 0,
         marginTop: -4,

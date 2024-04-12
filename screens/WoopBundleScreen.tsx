@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // React Native imports
-import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button, ScrollView } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // Hooks
@@ -12,6 +12,10 @@ import useTrigger from '../utils/hooks/useTrigger';
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
 import DropdownComponent from '../components/DropdownComponent';
+import Widget from '../components/WidgetConstructor';
+import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
+import DataComparison from '../patterns/DataComparisonPattern';
+import CreateNFT from '../patterns/CreateNFTPattern';
 
 
 // Actual component
@@ -34,6 +38,7 @@ export default function WoopBundleScreen() {
     const { trigger } = useTrigger(1);
 
     return (
+        <ScrollView>
         <View style={styles.container}>
 
             {/* useTrigger */}
@@ -112,17 +117,18 @@ export default function WoopBundleScreen() {
             </View>
 
             {/* Step Two Bundle */}
-            <View style={styles.bundle}>
-                <Text style={styles.bundleType}>Step 02 - Condition</Text>
-                <Text style={styles.heading}>When incoming amount has reach desired limit</Text>
-            </View>
-                <DropdownComponent />
-                <TextInputDropdown
-                    onChangeText={(text) => console.log(text)}
-                    onSelectOption={(option) => console.log(option)}
-                    options={['Ethereum', 'Arbitrum', 'Gnosis Chain']}
-                />
+            <Widget>
+                <Text style={styles.heading}>Network, Asset and Amount pattern</Text>
+                <SelectNetwork />
+            </Widget>
+            <Widget>
+                <Text style={styles.heading}>Data Comparison pattern</Text>
+                <DataComparison />
+            </Widget>
+                <Text style={styles.heading}>Create NFT pattern</Text>
+                <CreateNFT />
         </View>
+        </ScrollView>
     );
 };
 
@@ -150,7 +156,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 20,
-        marginBottom: 2,
+        marginBottom: 10,
         color: '#80baa8',
     },
     bundleType: {
