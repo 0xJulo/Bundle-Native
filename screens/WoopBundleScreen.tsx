@@ -8,6 +8,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
 import DropdownComponent from '../components/DropdownComponent';
+import Widget from '../components/WidgetConstructor';
+import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
+import DataComparison from '../patterns/DataComparisonPattern';
 
 
 // Actual component
@@ -28,69 +31,15 @@ export default function WoopBundleScreen() {
 
     return (
         <View style={styles.container}>
-            {/* Step One Bundle */}
-            <View style={styles.bundle}>
-                <View style={styles.bundleTop}>
-                    <View>
-                        <Text style={styles.bundleType}>Step 01</Text>
-                        <Text style={styles.heading}>Create Woop Payment Link</Text>
-                    </View>
-                    <View>
-                        <MaterialIcons
-                                name='check-circle'
-                                size={30}
-                                color='#80baa8'
-                        />
-                    </View>
-                </View>
-                
-                <TextInputDropdown
-                    onChangeText={(text) => console.log(text)}
-                    onSelectOption={(option) => console.log(option)}
-                    options={[]}
-                />
-
-                {/* Dropdown component */}
-                <TouchableOpacity
-                    style={styles.dropdown}
-                    onPress={toggleDropdown}
-                >
-                    <Text style={styles.dropdownText}>{selectedValue}</Text>
-                    <MaterialIcons
-                        name='expand-more'
-                        size={30}
-                        color='#80baa8'
-                    />
-                </TouchableOpacity>
-                {isOpen && (
-                    <View style={styles.dropdownOptions}>
-                        {options.map((option) => (
-                            <TouchableOpacity
-                                key={option}
-                                style={styles.dropdownOption}
-                                onPress={() => selectOption(option)}
-                            >
-                                <Text style={styles.dropdownOptionText}>
-                                    {option}
-                                </Text>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
-                )}
-                <CustomButton text='Create Woop Payment Link' />
-            </View>
-
             {/* Step Two Bundle */}
-            <View style={styles.bundle}>
-                <Text style={styles.bundleType}>Step 02 - Condition</Text>
-                <Text style={styles.heading}>When incoming amount has reach desired limit</Text>
-            </View>
-                <DropdownComponent />
-                <TextInputDropdown
-                    onChangeText={(text) => console.log(text)}
-                    onSelectOption={(option) => console.log(option)}
-                    options={['Ethereum', 'Arbitrum', 'Gnosis Chain']}
-                />
+            <Widget>
+                <Text style={styles.heading}>Network, Asset and Amount pattern</Text>
+                <SelectNetwork />
+            </Widget>
+            <Widget>
+                <Text style={styles.heading}>Data Comparison pattern</Text>
+                <DataComparison />
+            </Widget>
         </View>
     );
 };
@@ -119,7 +68,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 20,
-        marginBottom: 2,
+        marginBottom: 10,
         color: '#80baa8',
     },
     bundleType: {

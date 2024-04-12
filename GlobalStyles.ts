@@ -4,5 +4,9 @@ export default StyleSheet.create({
     primary: {
         color: '#80baa8',
     },
+    textNormal: {
+        fontSize: 16,
+        color: '#80baa8',
+    }
 });
 

@@ -20,6 +20,7 @@ export default function Widget({children}: WidgetProps) {
 // Component Styles
 const styles = StyleSheet.create({
     bundle: {
+        width: '90%',
         backgroundColor: '#20393f',
         borderColor: 'rgba(128, 186, 168, 0.2)',
         borderRadius: 10,
