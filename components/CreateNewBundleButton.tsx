@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 // Typescript props for navigation
 type NavigatorParams = {
     NewBundle: undefined;
+    WoopBundle: undefined;
 }
 
 // Actual component
@@ -16,7 +17,7 @@ export default function CreateBundle() {
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
   return (
-    <TouchableOpacity style={styles.fixedButton} onPress={() => navigation.navigate('NewBundle')}>
+    <TouchableOpacity style={styles.fixedButton} onPress={() => navigation.navigate('WoopBundle')}>
         <MaterialIcons name='add' size={50} color='#192d32' />
      </TouchableOpacity>
   );
