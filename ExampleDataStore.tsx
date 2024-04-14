@@ -11,14 +11,17 @@ export const ExampleDataStore = [
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         trigger: {
+            title: "Start by...",
             type: 'internal',
             input: 'wallet'
         },
         condition: {
+            title: "Check for...",
             type: 'data',
             source: 'chainlink'
         },
         action: {
+            title: "Send a...",
             type: 'transaction',
             source: 'external'
         },
@@ -45,14 +48,17 @@ export const ExampleDataStore = [
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         trigger: {
+            title: "Start by...",
             type: 'internal',
             input: 'wallet'
         },
         condition: {
+            title: "Check for...",
             type: 'data',
             source: 'chainlink'
         },
         action: {
+            title: "Send a...",
             type: 'transaction',
             source: 'external'
         },
@@ -80,14 +86,17 @@ export const ExampleDataStore = [
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         trigger: {
+            title: "Start by...",
             type: 'internal',
             input: 'wallet'
         },
         condition: {
+            title: "Check for...",
             type: 'data',
             source: 'chainlink'
         },
         action: {
+            title: "Send a...",
             type: 'transaction',
             source: 'external'
         },
@@ -115,14 +124,17 @@ export const ExampleDataStore = [
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         trigger: {
+            title: "Start by...",
             type: 'internal',
             input: 'wallet'
         },
         condition: {
+            title: "Check for...",
             type: 'data',
             source: 'chainlink'
         },
         action: {
+            title: "Send a...",
             type: 'transaction',
             source: 'external'
         },
@@ -150,14 +162,17 @@ export const ExampleDataStore = [
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         trigger: {
+            title: "Start by...",
             type: 'internal',
             input: 'wallet'
         },
         condition: {
+            title: "Check for...",
             type: 'data',
             source: 'chainlink'
         },
         action: {
+            title: "Send a...",
             type: 'transaction',
             source: 'external'
         },
@@ -185,14 +200,17 @@ export const ExampleDataStore = [
         description: 'This is a description for the bundle',
         tags: ['NFT', 'Art', 'Music'],
         trigger: {
+            title: "Start by...",
             type: 'internal',
             input: 'wallet'
         },
         condition: {
+            title: "Check for...",
             type: 'data',
             source: 'chainlink'
         },
         action: {
+            title: "Send a...",
             type: 'transaction',
             source: 'external'
         },
@@ -230,14 +248,17 @@ export interface Item {
     description: string;
     tags?: string[];
     trigger: {
+        title: string;
         type: string;
         input: string;
     };
     condition: {
+        title: string;
         type: string;
         source: string;
     },
     action: {
+        title: string;
         type: string;
         source: string;
     },

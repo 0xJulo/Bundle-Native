@@ -23,7 +23,7 @@ export default function Tabs({ items }: TabsProps) {
             <View style={styles.container}>
                 <View style={styles.tabContainer}>
                 <TouchableOpacity
-                    style={[styles.tab, activeTab === 'all' && styles.activeTab]}
+                    style={[styles.tabLeft, activeTab === 'all' && styles.activeTabLeft]}
                     onPress={() => setActiveTab('all')}
                 >
                     <Text style={[styles.text, activeTab === 'all' && styles.activeText]}>All</Text>
@@ -41,7 +41,7 @@ export default function Tabs({ items }: TabsProps) {
                     <Text style={[styles.text, activeTab === 'Saved' && styles.activeText]}>Saved</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    style={[styles.tab, activeTab === 'Popular' && styles.activeTab]}
+                    style={[styles.tabRight, activeTab === 'Popular' && styles.activeTabRight]}
                     onPress={() => setActiveTab('Popular')}
                 >
                     <Text style={[styles.text, activeTab === 'Popular' && styles.activeText]}>Popular</Text>
@@ -69,34 +69,58 @@ export default function Tabs({ items }: TabsProps) {
 // Component styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: '100%',
         flexDirection: 'column',
         marginBottom: 15,
-        backgroundColor: '#192d32',
+        // backgroundColor: '#192d32',
     },
     tabContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
         width: '100%',
         marginBottom: 15,
     },
     tab: {
         paddingVertical: 15,
         paddingHorizontal: 25,
-        backgroundColor: '#20393f',
+        backgroundColor: 'white',
         borderColor: '#80baa8',
         borderWidth: 1,
-        margin: 0,
-        //borderBottomWidth: 1,
+    },
+    tabLeft: {
+        paddingVertical: 15,
+        paddingHorizontal: 25,
+        backgroundColor: 'white',
+        borderColor: '#80baa8',
+        borderWidth: 1,
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    tabRight: {
+        paddingVertical: 15,
+        paddingHorizontal: 25,
+        backgroundColor: 'white',
+        borderColor: '#80baa8',
+        borderWidth: 1,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
     },
     activeTab: {
         backgroundColor: '#80baa8',
     },
+    activeTabLeft: {
+        backgroundColor: '#80baa8',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    activeTabRight: {
+        backgroundColor: '#80baa8',
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+    },
     text: {
         color: '#80baa8',
-        // textDecorationLine: 'underline',
     },
     activeText: {
         color: '#192d32',

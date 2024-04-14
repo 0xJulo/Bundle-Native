@@ -5,7 +5,7 @@ import GlobalStyles from '../GlobalStyles';
 import { View, Text, StyleSheet } from 'react-native';
 
 // Component imports
-import DropdownComponent from '../components/DropdownComponent';
+import DropdownComponent from '../components/inputs/DropdownComponent';
 
 // Actual component
 export default function DataComparison() {

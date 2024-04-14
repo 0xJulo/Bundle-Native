@@ -13,12 +13,15 @@ import useAction from '../utils/hooks/useAction';
 // Component import
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
-import DropdownComponent from '../components/DropdownComponent';
+import DropdownComponent from '../components/inputs/DropdownComponent';
 import Widget from '../components/WidgetConstructor';
 import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
 import DataComparison from '../patterns/DataComparisonPattern';
 import CreateNFT from '../patterns/CreateNFTPattern';
-import AmountInput from '../components/AmountInputComponent';
+import NumberInput from '../components/inputs/NumberComponent';
+import Start from '../components/widgets/StartWidget';
+import Condition from '../components/widgets/ConditionWidget';
+import Action from '../components/widgets/ActionWidget';
 
 
 // Actual component
@@ -48,34 +51,35 @@ export default function WoopBundleScreen() {
 
             {/* useTrigger */}
             {trigger && (
-                <View style={{marginBottom: 40,}}>
-                    <Text style={styles.heading}>useTrigger function from store</Text>
-                    <Text style={{ color: '#80baa8' }}>{trigger.type}</Text>
+                <Start>
+                    <Text style={styles.heading2}>useTrigger function from store</Text>
+                    <Text style={{ color: '#20393F' }}>{trigger.type}</Text>
                     {trigger.input === 'wallet' && (
                         <>
-                            <Text style={{ color: '#80baa8' }}>{trigger.input}</Text>
-                            <AmountInput />
+                            <Text style={{ color: '#20393F' }}>{trigger.input}</Text>
+                            <NumberInput inputText="Enter wallet" />
                         </>
                     )}
-                </View>
+                </Start>
             )}
             
             {/* useCondition */}
             {condition && (
-                <View style={{marginBottom: 40,}}>
-                    <Text style={styles.heading}>useCondition function from store</Text>
-                    <Text style={{ color: '#80baa8' }}>{condition.type}</Text>
-                    <Text style={{ color: '#80baa8' }}>{condition.source}</Text>
-                </View>
+                <Condition>
+                    <Text style={styles.heading2}>useCondition function from store</Text>
+                    <Text style={{ color: '#20393F' }}>{condition.type}</Text>
+                    <Text style={{ color: '#20393F' }}>{condition.source}</Text>
+                </Condition>
             )}
 
             {/* useAction */}
             {action && (
-                <View style={{marginBottom: 40,}}>
-                    <Text style={styles.heading}>useAction function from store</Text>
-                    <Text style={{ color: '#80baa8' }}>{action.type}</Text>
-                    <Text style={{ color: '#80baa8' }}>{action.source}</Text>
-                </View>
+                <Action>
+                    <Text style={styles.heading2}>useAction function from store</Text>
+                    <Text style={{ color: '#20393F' }}>{action.type}</Text>
+                    <Text style={{ color: '#20393F' }}>{action.source}</Text>
+                    <DropdownComponent options={['Ethereum', 'Polygon']} />
+                </Action>
             )}
 
             {/* useWallet */}
@@ -164,7 +168,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#192d32',
+        backgroundColor: '#FAFAFA',
+        paddingHorizontal: 15,
     },
     bundle: {
         backgroundColor: '#20393f',
@@ -184,6 +189,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 10,
         color: '#80baa8',
+    },
+    heading2: {
+        fontSize: 20,
+        marginBottom: 10,
+        color: '#20393F',
     },
     bundleType: {
         fontSize: 12,

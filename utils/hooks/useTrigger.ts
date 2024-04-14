@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ExampleDataStore } from '../../ExampleDataStore';
 
 interface Trigger {
+    title: string;
     type: string;
     input: string;
 }
