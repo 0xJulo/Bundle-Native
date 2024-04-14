@@ -7,6 +7,9 @@ export default StyleSheet.create({
     textNormal: {
         fontSize: 16,
         color: '#80baa8',
-    }
+    },
+    interSemiBold: {
+        fontFamily: 'Inter-SemiBold',
+    },
 });
 

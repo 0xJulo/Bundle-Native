@@ -1,7 +1,9 @@
 import React from 'react';
+import GlobalStyles from '../GlobalStyles';
 
 // React Native imports
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, Text } from 'react-native';
+import { useFonts } from 'expo-font';
 
 // Global Data
 import { useExampleData } from '../ExampleDataStore';
@@ -18,10 +20,20 @@ type NavigatorParams = {
 
 // Actual component
 export default function DashboardScreen() {
+    let [fontsLoaded] = useFonts({
+        'Inter-SemiBold': require('../assets/fonts/Inter-SemiBold.ttf'),
+        'Inter-Thin': require('../assets/fonts/Inter-Thin.ttf'),
+    });
     const { items } = useExampleData();
     return (
         <>
             <ScrollView contentContainerStyle={styles.container}>
+                <Text style={GlobalStyles.textNormal}>Test text</Text>
+                {fontsLoaded ? (
+                    <Text style={{ ...GlobalStyles.textNormal, fontFamily: 'Inter-Thin' }}>Test text</Text>
+                ) : (
+                    <Text style={GlobalStyles.textNormal}>Loading...</Text>
+                )}
                 <SearchBundles />
                 <Tabs items={items} />
             </ScrollView>

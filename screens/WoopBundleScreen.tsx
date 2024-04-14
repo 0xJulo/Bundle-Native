@@ -19,6 +19,9 @@ import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
 import DataComparison from '../patterns/DataComparisonPattern';
 import CreateNFT from '../patterns/CreateNFTPattern';
 import AmountInput from '../components/AmountInputComponent';
+import Trigger from '../components/TriggerComponent';
+import Condition from '../components/ConditionComponent';
+import Action from '../components/ActionComponent';
 
 
 // Actual component
@@ -48,34 +51,34 @@ export default function WoopBundleScreen() {
 
             {/* useTrigger */}
             {trigger && (
-                <View style={{marginBottom: 40,}}>
-                    <Text style={styles.heading}>useTrigger function from store</Text>
-                    <Text style={{ color: '#80baa8' }}>{trigger.type}</Text>
+                <Trigger>
+                    <Text style={styles.heading2}>useTrigger function from store</Text>
+                    <Text style={{ color: '#20393F' }}>{trigger.type}</Text>
                     {trigger.input === 'wallet' && (
                         <>
-                            <Text style={{ color: '#80baa8' }}>{trigger.input}</Text>
+                            <Text style={{ color: '#20393F' }}>{trigger.input}</Text>
                             <AmountInput />
                         </>
                     )}
-                </View>
+                </Trigger>
             )}
             
             {/* useCondition */}
             {condition && (
-                <View style={{marginBottom: 40,}}>
+                <Condition>
                     <Text style={styles.heading}>useCondition function from store</Text>
                     <Text style={{ color: '#80baa8' }}>{condition.type}</Text>
                     <Text style={{ color: '#80baa8' }}>{condition.source}</Text>
-                </View>
+                </Condition>
             )}
 
             {/* useAction */}
             {action && (
-                <View style={{marginBottom: 40,}}>
+                <Action>
                     <Text style={styles.heading}>useAction function from store</Text>
                     <Text style={{ color: '#80baa8' }}>{action.type}</Text>
                     <Text style={{ color: '#80baa8' }}>{action.source}</Text>
-                </View>
+                </Action>
             )}
 
             {/* useWallet */}
@@ -164,7 +167,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#192d32',
+        backgroundColor: '#FAFAFA',
     },
     bundle: {
         backgroundColor: '#20393f',
@@ -184,6 +187,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 10,
         color: '#80baa8',
+    },
+    heading2: {
+        fontSize: 20,
+        marginBottom: 10,
+        color: '#20393F',
     },
     bundleType: {
         fontSize: 12,
