@@ -1,7 +1,7 @@
 import React from 'react';
 
 // React Native imports
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, StatusBar } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
@@ -18,17 +18,19 @@ export default function Header() {
     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
 
     return (
-        <SafeAreaView style={styles.background}>
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
-                    <Text style={styles.text}>bundle</Text>
-                </TouchableOpacity>
-                <View>
-                    <WalletConnection />
+        <>
+            <StatusBar barStyle='dark-content' />
+            <SafeAreaView style={styles.background}>
+                <View style={styles.header}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+                        <Text style={styles.text}>bundle</Text>
+                    </TouchableOpacity>
+                    <View>
+                        <WalletConnection />
+                    </View>
                 </View>
-            </View>
-        </SafeAreaView>
-        
+            </SafeAreaView>
+        </>
      );
 };
 
@@ -36,13 +38,11 @@ export default function Header() {
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: 60,
         backgroundColor: '#FAFAFA',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingLeft: 20,
-        paddingRight: 20,
+        padding: 20,
     },
     background: {
         backgroundColor: '#FAFAFA',

@@ -28,12 +28,13 @@ export default function DashboardScreen() {
     return (
         <>
             <ScrollView contentContainerStyle={styles.container}>
-                <Text style={GlobalStyles.textNormal}>Test text</Text>
+                {/* 
                 {fontsLoaded ? (
                     <Text style={{ ...GlobalStyles.textNormal, fontFamily: 'Inter-Thin' }}>Test text</Text>
                 ) : (
                     <Text style={GlobalStyles.textNormal}>Loading...</Text>
                 )}
+                */}
                 <SearchBundles />
                 <Tabs items={items} />
             </ScrollView>

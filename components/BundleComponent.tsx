@@ -113,8 +113,8 @@ export default function BundleComponent({ id, name, description, created, type, 
 // Component Styles
 const styles = StyleSheet.create({
     bundle: {
-        backgroundColor: '#20393f',
-        borderColor: 'rgba(128, 186, 168, 0.2)',
+        backgroundColor: '#EEECEC',
+        borderColor: '#D3D3D3',
         borderRadius: 10,
         borderWidth: 1,
         padding: 15,
@@ -128,22 +128,22 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 2,
-        color: '#80baa8',
+        color: '#679985',
     },
     owner: {
         fontSize: 12,
         marginBottom: 10,
-        color: '#80baa8',
+        color: '#679985',
     },
     description: {
         fontSize: 16,
         marginBottom: 10,
-        color: '#80baa8',
+        color: '#679985',
     },
     bundleType: {
         fontSize: 12,
         marginBottom: 5,
-        color: '#80baa8',
+        color: '#679985',
     },
     step: {
         borderTopColor: 'rgba(128, 186, 168, 0.2)',

@@ -23,7 +23,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ text, icon, onPress }) => {
     return (
         <Pressable style={({ pressed })=> [icon ? styles.buttonIcon : styles.button, pressed && styles.buttonPressed]} onPress={onPress}>
             <Text style={styles.buttonText}>{text}</Text>
-            {icon && <MaterialIcons name={icon} size={30} color='#192d32' />}
+            {icon && <MaterialIcons name={icon} size={30} color='#245349' />}
         </Pressable>
     );
 };
@@ -51,7 +51,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     buttonText: {
-        color: '#192d32',
+        color: '#245349',
+    },
+    buttonTextPress:{
+        color: 'white',
     },
     buttonPressed: {
         opacity: 0.8,

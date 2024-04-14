@@ -21,7 +21,7 @@ export default function Widget({children}: WidgetProps) {
 const styles = StyleSheet.create({
     bundle: {
         width: '90%',
-        backgroundColor: '#20393f',
+        backgroundColor: '#FAFAFA',
         borderColor: 'rgba(128, 186, 168, 0.2)',
         borderRadius: 10,
         borderWidth: 1,

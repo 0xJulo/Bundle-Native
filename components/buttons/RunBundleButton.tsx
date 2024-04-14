@@ -17,7 +17,7 @@ export default function RunBundleButton() {
 
   return (
     <TouchableOpacity style={styles.fixedButton} onPress={() => navigation.navigate('NewBundle')}>
-        <MaterialIcons name='terminal' size={50} color='#192d32' />
+        <MaterialIcons name='terminal' size={50} color='white' />
      </TouchableOpacity>
   );
 };
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         width: 80, 
         height: 80,
         borderRadius: 50, 
-        backgroundColor: '#80baa8',
+        backgroundColor: '#192d32',
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 8, 
