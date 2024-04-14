@@ -1,15 +1,23 @@
 import React from 'react';
+// import { ExampleDataContext } from '../ExampleDataStore';
 
-// React Native imports§
+// React Native imports
 import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation, RouteProp, useRoute } from '@react-navigation/native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+// Hooks
+import useTrigger from '../utils/hooks/useTrigger';
+import useCondition from '../utils/hooks/useCondition';
+import useAction from '../utils/hooks/useAction';
+
 // Component imports
-import RunBundleButton from '../components/RunBundleButton';
-import ForkBundleButton from '../components/ForkBundleButton';
+import RunBundleButton from '../components/buttons/RunBundleButton';
+import ForkBundleButton from '../components/buttons/ForkBundleButton';
 import TextInputDropdown from '../components/TextInputDropdown';
+import Start from '../components/widgets/StartWidget';
+import NumberInput from '../components/inputs/NumberComponent';
 
 // Typescript props for navigation
 type NavigatorParams = {
@@ -17,10 +25,26 @@ type NavigatorParams = {
     Bundle: {
         id: number;
         name: string;
-        description: string;
+        type: string;
         created: string;
         owner: string;
-        type: string;
+        description: string;
+        tags?: string[];
+        trigger: {
+            title: string;
+            type: string;
+            input: string;
+        };
+        condition: {
+            title: string;
+            type: string;
+            source: string;
+        },
+        action: {
+            title: string;
+            type: string;
+            source: string;
+        },
         steps: {
             step: number;
             subheading: string;
@@ -34,13 +58,19 @@ type NavigatorParams = {
     };
 }
 
+
 type BundleScreenRouteProp = RouteProp<NavigatorParams, 'Bundle'>;
 
 // Actual component
 export default function BundleScreen() {
-    const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
-    const route = useRoute<BundleScreenRouteProp>();
+     const navigation = useNavigation<NativeStackNavigationProp<NavigatorParams>>();
+     const route = useRoute<BundleScreenRouteProp>();
     const { id, name, description, created, owner, type, steps } = route.params;
+
+    // Hooks data
+    const { trigger } = useTrigger(id);
+    const { condition } = useCondition(id);
+    const { action } = useAction(id);
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -52,27 +82,20 @@ export default function BundleScreen() {
                 </View>
                 <Text style={styles.text}>{description}</Text>
                 
-                <View style={styles.bundle}>
-                <View style={styles.bundleTop}>
-                    <View>
-                        <Text style={styles.bundleType}>Step 01</Text>
-                        <Text style={styles.bundleHeading}>Create Woop Payment Link</Text>
-                    </View>
-                    <View>
-                        <MaterialIcons
-                                name='check-circle'
-                                size={30}
-                                color='#80baa8'
-                        />
-                    </View>
-                </View>
-                
-                <TextInputDropdown
-                    onChangeText={(text) => console.log(text)}
-                    onSelectOption={(option) => console.log(option)}
-                    options={[]}
-                />
-            </View>
+                {/* useTrigger */}
+                {trigger && (
+                    <Start>
+                        <Text style={styles.heading2}>{trigger.title}</Text>
+                        {trigger.input === 'wallet' && (
+                            <>
+                                <Text style={{ color: '#20393F' }}>{trigger.input}</Text>
+                                <NumberInput inputText="Enter wallet" />
+                            </>
+                        )}
+                    </Start>
+                )}
+
+               
                 
             </View>
             
@@ -90,8 +113,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        backgroundColor: '#192d32',
-        marginHorizontal: 20,
+        backgroundColor: '#FAFAFA',
+        paddingHorizontal: 15,
     },
     text: {
         color: '#80baa8',
@@ -99,12 +122,17 @@ const styles = StyleSheet.create({
     },
     safeArea: {
         flex: 1,
-        backgroundColor: '#192d32',
+        backgroundColor: '#FAFAFA',
     },
     heading: {
         fontSize: 32,
         color: '#80baa8',
         marginBottom: 20,
+    },
+    heading2: {
+        fontSize: 20,
+        marginBottom: 10,
+        color: '#20393F',
     },
     bundle: {
         backgroundColor: '#20393f',
@@ -131,4 +159,30 @@ const styles = StyleSheet.create({
         color: '#80baa8',
     },
 });
+
+
+ {/* 
+                <View style={styles.bundle}>
+                <View style={styles.bundleTop}>
+                    <View>
+                        <Text style={styles.bundleType}>Step 01</Text>
+                        <Text style={styles.bundleHeading}>Create Woop Payment Link</Text>
+                    </View>
+                    <View>
+                        <MaterialIcons
+                                name='check-circle'
+                                size={30}
+                                color='#80baa8'
+                        />
+                    </View>
+                </View>
+                
+                
+                <TextInputDropdown
+                    onChangeText={(text) => console.log(text)}
+                    onSelectOption={(option) => console.log(option)}
+                    options={[]}
+                />
+            </View>
+            */}
 

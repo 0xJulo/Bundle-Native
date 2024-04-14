@@ -1,19 +1,20 @@
 import React from 'react';
 
 // React Native imports
-import { View, Text, StyleSheet, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 
-type TextInputComponentProps = {
-    placeholder: string;
+interface NumberInputProps {
+    inputText: string;
 }
 
 // Actual component
-export default function TextInputComponent({ placeholder }: TextInputComponentProps) {
+export default function NumberInput({inputText}: NumberInputProps) {
     return (
         <TextInput 
             style={styles.input} 
-            placeholder={placeholder}
+            placeholder={inputText}
             placeholderTextColor="#507469"
+            keyboardType="numeric"
         />
     );
 }
@@ -21,11 +22,12 @@ export default function TextInputComponent({ placeholder }: TextInputComponentPr
 // Component styles
 const styles = StyleSheet.create({
     input: {
-        // flexDirection: 'row',
+        backgroundColor: 'white',
+        flexDirection: 'row',
         alignItems: 'center',
         height: 50,
-        // width: '100%',
-        // justifyContent: 'space-between',
+        width: '100%',
+        justifyContent: 'space-between',
         paddingHorizontal: 10,
         borderWidth: 1,
         borderColor: '#80baa8',

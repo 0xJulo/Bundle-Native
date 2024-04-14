@@ -69,34 +69,38 @@ export default function Tabs({ items }: TabsProps) {
 // Component styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: '100%',
         flexDirection: 'column',
         marginBottom: 15,
-        backgroundColor: '#192d32',
+        // backgroundColor: '#192d32',
     },
     tabContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
         width: '100%',
         marginBottom: 15,
     },
     tab: {
         paddingVertical: 15,
         paddingHorizontal: 25,
-        backgroundColor: '#20393f',
+        backgroundColor: 'white',
         borderColor: '#80baa8',
         borderWidth: 1,
-        margin: 0,
-        //borderBottomWidth: 1,
     },
     activeTab: {
         backgroundColor: '#80baa8',
     },
+    activeTabLeft: {
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    activeTabRight: {
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+    },
     text: {
         color: '#80baa8',
-        // textDecorationLine: 'underline',
     },
     activeText: {
         color: '#192d32',

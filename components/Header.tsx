@@ -11,7 +11,7 @@ type NavigatorParams = {
 }
 
 // Component imports
-import WalletConnection from './WalletButton';
+import WalletConnection from './buttons/WalletButton';
 
 // Actual component
 export default function Header() {
@@ -36,8 +36,8 @@ export default function Header() {
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: 80,
-        backgroundColor: '#192d32',
+        height: 60,
+        backgroundColor: '#FAFAFA',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         paddingRight: 20,
     },
     background: {
-        backgroundColor: '#192d32',
+        backgroundColor: '#FAFAFA',
     },
     text: {
         fontSize: 40,

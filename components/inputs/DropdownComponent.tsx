@@ -66,6 +66,7 @@ export default function DropdownComponent({ options, onOptionSelected }: Dropdow
 // Component styles
 const styles = StyleSheet.create({
     dropdown: {
+        backgroundColor: 'white',
         flexDirection: 'row',
         alignItems: 'center',
         height: 50,
@@ -79,10 +80,10 @@ const styles = StyleSheet.create({
     },
     dropdownText: {
         color: '#80baa8',
-        fontSize: 16,
+        fontSize: 14,
     },
     dropdownOptions: {
-        backgroundColor: '#20393f',
+        backgroundColor: 'white',
         borderWidth: 1,
         borderTopWidth: 0,
         marginTop: -4,
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     },
     dropdownOptionText: {
         color: '#80baa8',
-        fontSize: 16,
+        fontSize: 14,
     },
 });
 

@@ -5,8 +5,8 @@ import GlobalStyles from '../GlobalStyles';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 // Component imports
-import DropdownComponent from '../components/DropdownComponent';
-import TextInputComponent from '../components/TextInputComponent';
+import DropdownComponent from '../components/inputs/DropdownComponent';
+import TextInputComponent from '../components/inputs/TextInputComponent';
 
 // Actual component
 export default function CreateNFT() {

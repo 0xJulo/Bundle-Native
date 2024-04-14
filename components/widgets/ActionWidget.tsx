@@ -14,8 +14,8 @@ export default function Condition({children}: ConditionProps) {
   return (
     <>
       <View style={styles.actionHeading}>
-        <MaterialIcons name='query-stats' size={25} color='#192d32' style={{marginRight: 5}} />
-        <Text>Condition</Text>
+        <Text>Action</Text>
+        <MaterialIcons name='send' size={25} color='#192d32' />
       </View>
       <View style={styles.bundle}>
           {children}
@@ -27,7 +27,7 @@ export default function Condition({children}: ConditionProps) {
 // Component Styles
 const styles = StyleSheet.create({
     bundle: {
-        width: '90%',
+        width: '100%',
         backgroundColor: '#EEECEC',
         borderColor: '#D3D3D3',
         borderBottomEndRadius: 12,
@@ -36,17 +36,20 @@ const styles = StyleSheet.create({
         borderLeftWidth: 1,
         borderRightWidth: 1,
         padding: 15,
+        marginBottom: 10,
     },
     actionHeading: {
-      width: '90%',
+      width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'flex-start',
+      justifyContent: 'space-between',
       borderTopEndRadius: 12,
       borderTopStartRadius: 12,
       backgroundColor: '#80BAA8',
       paddingLeft: 15,
+      paddingRight: 15,
       paddingTop: 8,
       paddingBottom: 8,
+      marginTop: 10,
     }
 });

@@ -5,9 +5,9 @@ import GlobalStyles from '../GlobalStyles';
 import { View, Text, StyleSheet } from 'react-native';
 
 // Component imports
-import DropdownComponent from '../components/DropdownComponent';
+import DropdownComponent from '../components/inputs/DropdownComponent';
 import CustomButton from '../components/CustomButton';
-import AmountInput from '../components/AmountInputComponent';
+import AmountInput from '../components/inputs/NumberComponent';
 
 // Component structure 
 type SelectNetworkProps = {

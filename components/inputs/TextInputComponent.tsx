@@ -3,14 +3,17 @@ import React from 'react';
 // React Native imports
 import { View, Text, StyleSheet, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
+type TextInputComponentProps = {
+    placeholder: string;
+}
+
 // Actual component
-export default function AmountInput() {
+export default function TextInputComponent({ placeholder }: TextInputComponentProps) {
     return (
         <TextInput 
             style={styles.input} 
-            placeholder="Input amount"
+            placeholder={placeholder}
             placeholderTextColor="#507469"
-            keyboardType="numeric"
         />
     );
 }
@@ -18,11 +21,10 @@ export default function AmountInput() {
 // Component styles
 const styles = StyleSheet.create({
     input: {
-        flexDirection: 'row',
+        backgroundColor: 'white',
         alignItems: 'center',
         height: 50,
         width: '100%',
-        justifyContent: 'space-between',
         paddingHorizontal: 10,
         borderWidth: 1,
         borderColor: '#80baa8',

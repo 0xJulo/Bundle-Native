@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ExampleDataStore } from '../../ExampleDataStore';
 
 interface Condition {
+    title: string;
     type: string;
     source: string;
 }
