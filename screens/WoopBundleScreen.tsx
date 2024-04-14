@@ -4,6 +4,12 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Button, ScrollView } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+// Hooks
+import useWallet from '../utils/hooks/useWallet';
+import useTrigger from '../utils/hooks/useTrigger';
+import useCondition from '../utils/hooks/useCondition';
+import useAction from '../utils/hooks/useAction';
+
 // Component import
 import TextInputDropdown from '../components/TextInputDropdown';
 import CustomButton from '../components/CustomButton';
@@ -12,6 +18,7 @@ import Widget from '../components/WidgetConstructor';
 import SelectNetwork from '../patterns/SelectNetworkAssetAmountPattern';
 import DataComparison from '../patterns/DataComparisonPattern';
 import CreateNFT from '../patterns/CreateNFTPattern';
+import AmountInput from '../components/AmountInputComponent';
 
 
 // Actual component
@@ -30,9 +37,111 @@ export default function WoopBundleScreen() {
         setIsOpen(false);
     };
 
+    const { transactions } = useWallet('0xfe123');
+    const { trigger } = useTrigger(1);
+    const { condition } = useCondition(1);
+    const { action } = useAction(1);
+
     return (
         <ScrollView>
         <View style={styles.container}>
+
+            {/* useTrigger */}
+            {trigger && (
+                <View style={{marginBottom: 40,}}>
+                    <Text style={styles.heading}>useTrigger function from store</Text>
+                    <Text style={{ color: '#80baa8' }}>{trigger.type}</Text>
+                    {trigger.input === 'wallet' && (
+                        <>
+                            <Text style={{ color: '#80baa8' }}>{trigger.input}</Text>
+                            <AmountInput />
+                        </>
+                    )}
+                </View>
+            )}
+            
+            {/* useCondition */}
+            {condition && (
+                <View style={{marginBottom: 40,}}>
+                    <Text style={styles.heading}>useCondition function from store</Text>
+                    <Text style={{ color: '#80baa8' }}>{condition.type}</Text>
+                    <Text style={{ color: '#80baa8' }}>{condition.source}</Text>
+                </View>
+            )}
+
+            {/* useAction */}
+            {action && (
+                <View style={{marginBottom: 40,}}>
+                    <Text style={styles.heading}>useAction function from store</Text>
+                    <Text style={{ color: '#80baa8' }}>{action.type}</Text>
+                    <Text style={{ color: '#80baa8' }}>{action.source}</Text>
+                </View>
+            )}
+
+            {/* useWallet */}
+            <View style={{marginBottom: 40,}}>
+                <Text style={styles.heading}>Transactions from useWallet</Text>
+                {transactions.map((transaction, index) => (
+                    <Text 
+                        key={index}
+                        style={{color: '#80baa8'}}
+                    >{`ID: ${transaction.id}, Amount: ${transaction.amount}, Currency: ${transaction.currency}`}</Text>
+                ))}
+            </View>
+
+
+            {/* Step One Bundle */}
+            <View style={styles.bundle}>
+                <View style={styles.bundleTop}>
+                    <View>
+                        <Text style={styles.bundleType}>Step 01</Text>
+                        <Text style={styles.heading}>Create Woop Payment Link</Text>
+                    </View>
+                    <View>
+                        <MaterialIcons
+                                name='check-circle'
+                                size={30}
+                                color='#80baa8'
+                        />
+                    </View>
+                </View>
+                
+                <TextInputDropdown
+                    onChangeText={(text) => console.log(text)}
+                    onSelectOption={(option) => console.log(option)}
+                    options={[]}
+                />
+
+                {/* Dropdown component */}
+                <TouchableOpacity
+                    style={styles.dropdown}
+                    onPress={toggleDropdown}
+                >
+                    <Text style={styles.dropdownText}>{selectedValue}</Text>
+                    <MaterialIcons
+                        name='expand-more'
+                        size={30}
+                        color='#80baa8'
+                    />
+                </TouchableOpacity>
+                {isOpen && (
+                    <View style={styles.dropdownOptions}>
+                        {options.map((option) => (
+                            <TouchableOpacity
+                                key={option}
+                                style={styles.dropdownOption}
+                                onPress={() => selectOption(option)}
+                            >
+                                <Text style={styles.dropdownOptionText}>
+                                    {option}
+                                </Text>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
+                )}
+                <CustomButton text='Create Woop Payment Link' />
+            </View>
+
             {/* Step Two Bundle */}
             <Widget>
                 <Text style={styles.heading}>Network, Asset and Amount pattern</Text>
